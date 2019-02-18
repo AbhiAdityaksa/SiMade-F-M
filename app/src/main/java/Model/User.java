@@ -2,7 +2,7 @@ package Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserLogin{
+public class User{
 
 	@SerializedName("verified_status")
 	private String verifiedStatus;
@@ -150,7 +150,7 @@ public class UserLogin{
 	@Override
  	public String toString(){
 		return 
-			"UserLogin{" + 
+			"User{" +
 			"verified_status = '" + verifiedStatus + '\'' + 
 			",photo_profile = '" + photoProfile + '\'' + 
 			",created_at = '" + createdAt + '\'' + 

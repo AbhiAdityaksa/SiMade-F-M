@@ -1,11 +1,11 @@
 package Auth;
 
-import Model.UserLogin;
+import Model.User;
 
 public interface AuthView {
     void showLoading();
     void hideLoading();
-    void onSuccess(UserLogin userLogin);
+    void onSuccess(User user);
     void onError();
     void onFailure(Throwable t);
 }

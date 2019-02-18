@@ -1,7 +1,6 @@
 package Api;
 
-import Model.UserLogin;
-import Model.UserRegistration;
+import Model.User;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -13,11 +12,11 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("login")
-    Call<UserLogin> login(@Field("email") String email, @Field("password") String password);
+    Call<User> login(@Field("email") String email, @Field("password") String password);
 
     @Multipart
     @POST("registration")
-    Call<UserRegistration> registration(@Part("identity_no") String identity_no,
+    Call<User> registration(@Part("identity_no") String identity_no,
                                         @Part("name") String name,
                                         @Part("password") String password,
                                         @Part("contact") String contact,
