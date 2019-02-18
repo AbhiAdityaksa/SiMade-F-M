@@ -3,46 +3,47 @@ package Helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import Model.UserLogin;
+
 public class PreferenceHelper {
     private SharedPreferences sharedPreferences;
+    private final String PREFERENCES_NAME="shared_preferences";
+    private final String LOGIN="login";
+    private final String TOKEN="token";
+    private final String NAME="name";
 
 
     public PreferenceHelper(Context context) {
-        sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
     public void setLogin(boolean login){
         sharedPreferences.edit()
-                .putBoolean("login",login)
-                .apply();
-    }
-
-    public void setNama(String nama){
-        sharedPreferences.edit()
-                .putString("nama",nama)
-                .apply();
-    }
-
-    public void setUsername(String username){
-        sharedPreferences.edit()
-                .putString("username",username)
-                .apply();
-    }
-
-    public void setEmail(String email){
-        sharedPreferences.edit()
-                .putString("email",email)
-                .apply();
-    }
-
-    public void setID(String id){
-        sharedPreferences.edit()
-                .putString("id",id)
+                .putBoolean(LOGIN,login)
                 .apply();
     }
 
     public boolean getLogin(){
-        return sharedPreferences.getBoolean("login",false);
+        return sharedPreferences.getBoolean(LOGIN,false);
+    }
+
+    public void setName(String name){
+        sharedPreferences.edit()
+                .putString(NAME,name)
+                .apply();
+    }
+
+    public String getName(){
+        return sharedPreferences.getString(NAME,"");
+    }
+
+
+    public void setToken(String token){
+        sharedPreferences.edit().putString(TOKEN,token).apply();
+    }
+
+    public String getToken(){
+        return sharedPreferences.getString(TOKEN,"");
     }
 
 
@@ -50,5 +51,11 @@ public class PreferenceHelper {
         sharedPreferences.edit()
                 .clear()
                 .apply();
+    }
+
+    public void setUserLogin(UserLogin userLogin){
+        setLogin(true);
+        setToken(userLogin.getToken());
+        setName(userLogin.getName());
     }
 }

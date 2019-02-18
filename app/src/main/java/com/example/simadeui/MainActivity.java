@@ -1,20 +1,38 @@
 package com.example.simadeui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import Api.ApiClient;
+import Api.ApiService;
+import Auth.AuthPresenter;
+import Auth.AuthView;
+import Helper.PreferenceHelper;
+import Model.UserLogin;
 
-    TextView tv_regis1;
+public class MainActivity extends AppCompatActivity implements AuthView, View.OnClickListener {
+
+    protected TextView tv_regis1;
+    protected EditText et_user1, et_user2;
+    protected Button bt_login;
+    private PreferenceHelper preferenceHelper;
+    private AuthPresenter presenter;
+    ApiService service;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        init();
 
         tv_regis1 = (TextView) findViewById(R.id.tv_regis1);
 
@@ -25,5 +43,79 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void init(){
+        et_user1 = (EditText) findViewById(R.id.et_user1);
+        et_user2 = (EditText) findViewById(R.id.et_user2);
+        bt_login = (Button) findViewById(R.id.bt_login);
+
+        bt_login.setOnClickListener(this);
+        presenter = new AuthPresenter(this,ApiClient.getService(this));
+        preferenceHelper = new PreferenceHelper(this);
+
+
+    }
+
+    @Override
+    public void showLoading() {
+        Toast.makeText(this, "Loading", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void hideLoading() {
+        Toast.makeText(this, "Loaded", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onSuccess(UserLogin userLogin) {
+        preferenceHelper.setUserLogin(userLogin);
+//        startActivity(new Intent(MainActivity.this,UserActivity.class));
+        finish();
+        Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onError() {
+        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFailure(Throwable t) {
+        Toast.makeText(this, "Failed : "+t, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.bt_login:
+                login();
+                break;
+
+
+        }
+    }
+
+    private void login(){
+        String email = et_user1.getText().toString();
+        String password = et_user2.getText().toString();
+
+        if(validate(email,password)){
+            presenter.login(email,password);
+        }
+    }
+
+    private boolean validate(String username,String password){
+        if (username.equals("")){
+            et_user1.setError("Field username tidak boleh kosong");
+            return false;
+        }
+
+        if (password.equals("")){
+            et_user2.setError("Field password tidak boleh kosong");
+            return false;
+        }
+
+        return true;
     }
 }
