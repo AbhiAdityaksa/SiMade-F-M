@@ -33,22 +33,13 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
         setContentView(R.layout.activity_login);
 
         init();
-
-        tv_regis1 = (TextView) findViewById(R.id.tv_regis1);
-
-        tv_regis1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Register2Activity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void init(){
         et_user1 = (EditText) findViewById(R.id.et_user1);
         et_user2 = (EditText) findViewById(R.id.et_user2);
         bt_login = (Button) findViewById(R.id.bt_login);
+        tv_regis1 = (TextView) findViewById(R.id.tv_regis1);
 
         bt_login.setOnClickListener(this);
         presenter = new AuthPresenter(this,ApiClient.getService(this));
@@ -91,7 +82,9 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
             case R.id.bt_login:
                 login();
                 break;
-
+            case R.id.tv_regis1:
+                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+                break;
 
         }
     }
