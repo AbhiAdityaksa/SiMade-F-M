@@ -1,6 +1,8 @@
 package Api;
 
 import Model.User;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -16,12 +18,12 @@ public interface ApiService {
 
     @Multipart
     @POST("registration")
-    Call<User> registration(@Part("identity_no") String identity_no,
-                                        @Part("name") String name,
-                                        @Part("password") String password,
-                                        @Part("contact") String contact,
-                                        @Part("photo_profile") String photo_profile,
-                                        @Part("photo_identity") String photo_identity,
-                                        @Part("worked_status") String worked_status);
+    Call<User> registration(@Part("identity_no") RequestBody identity_no,
+                            @Part("name") RequestBody name,
+                            @Part("password") RequestBody password,
+                            @Part("contact") RequestBody contact,
+                            @Part("photo_profile") MultipartBody.Part photo_profile,
+                            @Part("photo_identity") MultipartBody.Part photo_identity,
+                            @Part("worked_status") RequestBody worked_status);
 
 }

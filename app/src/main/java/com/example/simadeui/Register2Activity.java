@@ -3,7 +3,10 @@ package com.example.simadeui;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.os.Build;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +18,12 @@ import android.widget.Toast;
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
+import java.io.File;
 import java.util.regex.Pattern;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 public class Register2Activity extends AppCompatActivity {
 
@@ -23,6 +31,8 @@ public class Register2Activity extends AppCompatActivity {
     Button btn_ktp_2;
     TextView tv_kk_1;
     TextView tv_ktp_2;
+//    MultipartBody.Part photo_profil;
+//    MultipartBody.Part body1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
