@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.simadeui">
-    
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <dist:module dist:instant="true" />
 
     <application
@@ -14,7 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register2Activity"></activity>
+        <activity android:name=".NotifActivity"></activity>
+        <activity android:name=".BerhasilActivity" />
+        <activity android:name=".TanyaActivity" />
+        <activity android:name=".DetPostActivity" />
+        <activity android:name=".GantiPassActivity" />
+        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".DetProfileActivity" />
+        <activity android:name=".HomeActivityFrag" />
+        <activity
+            android:name=".UtamaActivity"
+            android:label="@string/title_activity_home1" />
+        <activity android:name=".Register2Activity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
