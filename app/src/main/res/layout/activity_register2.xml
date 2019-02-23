@@ -187,53 +187,53 @@
                 android:padding="10dp"
                 android:textColorHint="#5eb5a6" />
 
-            <TextView
-                android:id="@+id/tv_ttl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="Tempat Lahir"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/tv_ttl"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="Tempat Lahir"-->
+                <!--android:textColor="#5eb5a6"-->
+                <!--android:textSize="16sp"-->
+                <!--android:textStyle="bold" />-->
 
-            <EditText
-                android:id="@+id/et_ttl"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/et_outline"
-                android:hint="Masukkkan Tempat Lahir"
-                android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
+            <!--<EditText-->
+                <!--android:id="@+id/et_ttl"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="43dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:background="@drawable/et_outline"-->
+                <!--android:hint="Masukkkan Tempat Lahir"-->
+                <!--android:padding="10dp"-->
+                <!--android:textColorHint="#5eb5a6" />-->
 
-            <TextView
-                android:id="@+id/tv_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="Tanggal Lahir"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:id="@+id/tv_place"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="Tanggal Lahir"-->
+                <!--android:textColor="#5eb5a6"-->
+                <!--android:textSize="16sp"-->
+                <!--android:textStyle="bold" />-->
 
-            <EditText
-                android:id="@+id/et_place"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/et_outline"
-                android:hint="Masukkkan Tanggal Lahir"
-                android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
+            <!--<EditText-->
+                <!--android:id="@+id/et_place"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="43dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:background="@drawable/et_outline"-->
+                <!--android:hint="Masukkkan Tanggal Lahir"-->
+                <!--android:padding="10dp"-->
+                <!--android:textColorHint="#5eb5a6" />-->
 
             <TextView
                 android:id="@+id/tv_s_ktp"
