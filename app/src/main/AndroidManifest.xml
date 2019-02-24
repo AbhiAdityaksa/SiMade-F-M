@@ -15,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GantiPassActivity"></activity>
+        <activity android:name=".NotifActivity"></activity>
+        <activity android:name=".BerhasilActivity" />
+        <activity android:name=".TanyaActivity" />
+        <activity android:name=".DetPostActivity" />
+        <activity android:name=".GantiPassActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".DetProfileActivity" />
         <activity android:name=".HomeActivityFrag" />

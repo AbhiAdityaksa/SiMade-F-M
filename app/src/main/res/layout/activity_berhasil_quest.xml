@@ -4,31 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context=".HomeActivityFrag">
+    tools:context=".BerhasilActivity">
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="521dp"
-        android:layout_margin="20dp"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="343dp"
+        android:layout_height="313dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/iv_alert1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
+    <Button
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-            
-            <!--Spinner here-->
-            <!--Spinner here-->
+        android:layout_height="50dp"
+        android:layout_marginTop="680dp"
+        android:background="@drawable/btn_done"
+        android:text="Done"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
-   
 </android.support.constraint.ConstraintLayout>
