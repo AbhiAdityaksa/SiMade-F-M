@@ -31,7 +31,18 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        checkLogin();
         init();
+    }
+
+    private void checkLogin(){
+        preferenceHelper = new PreferenceHelper(this);
+        boolean login = preferenceHelper.getLogin();
+        if(login) {
+            Intent intent = new Intent(this, UtamaActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     private void init(){
