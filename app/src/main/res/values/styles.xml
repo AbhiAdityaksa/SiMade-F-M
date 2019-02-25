@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SlidingTabs">
+        <item name="tabTextColor">#AEEEE2</item>
+        <item name="tabSelectedTextColor">#5EB5A6</item>
+        <item name="tabIndicatorColor">#5EB5A6</item>
+        <item name="tabIndicatorHeight">3dp</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">16sp</item>
+    </style>
+
 </resources>

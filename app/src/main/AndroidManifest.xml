@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.simadeui">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,15 +15,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".NotifActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="Admin.Notifikasi.AdminNotifActivity"></activity>
+        <activity android:name="Admin.AdminActivity" />
         <activity android:name=".BerhasilActivity" />
         <activity android:name=".TanyaActivity" />
         <activity android:name=".DetPostActivity" />
         <activity android:name=".GantiPassActivity" />
         <activity android:name=".EditProfileActivity" />
-        <activity android:name=".DetProfileActivity" />
-        <activity android:name=".HomeActivityFrag" />
+        <activity android:name=".DetProfileActivity" /> <!-- <activity android:name=".HomeActivityFrag" /> -->
         <activity
             android:name=".UtamaActivity"
             android:label="@string/title_activity_home1" />

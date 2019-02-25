@@ -12,5 +12,7 @@
     <string name="title_notifications">Profile</string>
     <string name="text_lorem">Aliquam quis faucibus tellus, ac ultrices eros. Nulla facilisi. Praesent aliquet dui eros, id ullamcorper odio ultricies nec. Phasellus in nibh molestie, luctus turpis eu, cursus felis. Phasellus viverra nisi felis, vitae elementum ex ornare sit amet. Integer ut arcu elit. Suspendisse urna purus, hendrerit vel mi ac, dignissim rutrum orci. Nullam sodales convallis sem in ullamcorper. In eleifend lacus non tincidunt porta. </string>
     <string name="no_files">No Files</string>
-
+    <string name="admin_home">Home</string>
+    <string name="admin_grafik">Grafik</string>
+    <string name="admin_akun">Akun</string>
 </resources>

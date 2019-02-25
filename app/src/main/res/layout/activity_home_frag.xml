@@ -19,7 +19,8 @@
         android:background="@drawable/ic_launcher_background"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="56dp">
+        tools:layout_editor_absoluteY="56dp"
+        tools:ignore="MissingConstraints">
 
     </LinearLayout>
 
