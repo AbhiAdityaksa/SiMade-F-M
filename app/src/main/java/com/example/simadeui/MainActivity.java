@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     @Override
     public void onSuccess(User user) {
         preferenceHelper.setUser(user);
-//        startActivity(new Intent(MainActivity.this,UserActivity.class));
+        startActivity(new Intent(MainActivity.this,UtamaActivity.class));
         finish();
         Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
     }

@@ -50,6 +50,7 @@ public class AuthPresenter {
             public void onResponse(retrofit2.Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
                     view.onSuccess(response.body());
+
                 }else {
                     view.onError();
                 }
