@@ -21,6 +21,7 @@ public interface ApiService {
     Call<User> registration(@Part("identity_no") RequestBody identity_no,
                             @Part("name") RequestBody name,
                             @Part("password") RequestBody password,
+                            @Part("email") RequestBody email,
                             @Part("contact") RequestBody contact,
                             @Part("photo_profile") MultipartBody.Part photo_profile,
                             @Part("photo_identity") MultipartBody.Part photo_identity,

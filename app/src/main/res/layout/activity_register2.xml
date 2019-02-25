@@ -74,79 +74,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="8dp"
-                android:text="Username"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/et_username"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/et_outline"
-                android:hint="Masukkan Username"
-                android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
-
-            <TextView
-                android:id="@+id/tv_pass"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="Password"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/et_pass"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/et_outline"
-                android:hint="Masukkan Password"
-                android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
-
-            <TextView
-                android:id="@+id/tv_fullname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="Nama Lengkap"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/et_fullname"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/et_outline"
-                android:hint="Masukkan Nama Lengkap"
-                android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
-
-            <TextView
-                android:id="@+id/tv_ktp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="No Ktp"
+                android:text="No Identitas"
                 android:textColor="#5eb5a6"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -159,79 +87,129 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_outline"
-                android:hint="Masukkan No Ktp"
+                android:hint="Masukkan No KTP"
                 android:padding="10dp"
                 android:textColorHint="#5eb5a6" />
 
             <TextView
-                android:id="@+id/tv_kk"
+                android:id="@+id/tv_nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
-                android:text="No Kartu Keluarga"
+                android:text="Nama Lengkap"
                 android:textColor="#5eb5a6"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_kk"
+                android:id="@+id/et_nama"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_outline"
-                android:hint="Masukkan No Kartu Keluarga"
+                android:hint="Masukkan Nama Lengkap"
                 android:padding="10dp"
                 android:textColorHint="#5eb5a6" />
 
             <TextView
-                android:id="@+id/tv_ttl"
+                android:id="@+id/tv_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
-                android:text="Tempat Lahir"
+                android:text="Password"
                 android:textColor="#5eb5a6"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_ttl"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/et_outline"
-                android:hint="Masukkkan Tempat Lahir"
+                android:hint="Masukkan Password"
                 android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
+                android:textColorHint="#5eb5a6"
+                android:inputType="textPassword"/>
 
             <TextView
-                android:id="@+id/tv_place"
+                android:id="@+id/tv_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="8dp"
-                android:text="Tanggal Lahir"
+                android:text="Email"
                 android:textColor="#5eb5a6"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_place"
+                android:id="@+id/et_email"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="8dp"
                 android:background="@drawable/et_outline"
-                android:hint="Masukkkan Tanggal Lahir"
+                android:hint="Masukkan Email"
+                android:padding="10dp"
+                android:textColorHint="#5eb5a6"
+                android:inputType="textEmailAddress"/>
+
+            <TextView
+                android:id="@+id/tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="No Handphone"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_contact"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_outline"
+                android:hint="Masukkan Kontak"
+                android:padding="10dp"
+                android:textColorHint="#5eb5a6"
+                android:inputType="number"/>
+
+            <TextView
+                android:id="@+id/tv_workstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="Status Kerja"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/s_workstatus"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_outline"
                 android:padding="10dp"
                 android:textColorHint="#5eb5a6" />
 

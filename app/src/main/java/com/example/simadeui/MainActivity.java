@@ -15,7 +15,7 @@ import Api.ApiService;
 import Auth.AuthPresenter;
 import Auth.AuthView;
 import Helper.PreferenceHelper;
-import Model.UserLogin;
+import Model.User;
 
 public class MainActivity extends AppCompatActivity implements AuthView, View.OnClickListener {
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
         tv_regis1 = (TextView) findViewById(R.id.tv_regis1);
 
         bt_login.setOnClickListener(this);
+        tv_regis1.setOnClickListener(this);
         presenter = new AuthPresenter(this,ApiClient.getService(this));
         preferenceHelper = new PreferenceHelper(this);
 
@@ -59,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     }
 
     @Override
-    public void onSuccess(UserLogin userLogin) {
-        preferenceHelper.setUserLogin(userLogin);
+    public void onSuccess(User user) {
+        preferenceHelper.setUser(user);
 //        startActivity(new Intent(MainActivity.this,UserActivity.class));
         finish();
         Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
@@ -83,7 +84,9 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
                 login();
                 break;
             case R.id.tv_regis1:
-                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+                Intent intent=new Intent(MainActivity.this,Register2Activity.class);
+                startActivity(intent);
+                finish();
                 break;
 
         }

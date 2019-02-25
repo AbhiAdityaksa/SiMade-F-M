@@ -3,7 +3,7 @@ package Helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import Model.UserLogin;
+import Model.User;
 
 public class PreferenceHelper {
     private SharedPreferences sharedPreferences;
@@ -53,9 +53,9 @@ public class PreferenceHelper {
                 .apply();
     }
 
-    public void setUserLogin(UserLogin userLogin){
+    public void setUser(User user){
         setLogin(true);
-        setToken(userLogin.getToken());
-        setName(userLogin.getName());
+        setToken(user.getToken());
+        setName(user.getName());
     }
 }
