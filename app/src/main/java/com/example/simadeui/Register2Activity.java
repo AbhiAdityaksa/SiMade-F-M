@@ -31,7 +31,7 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class Register2Activity extends AppCompatActivity implements AuthView, AdapterView.OnItemSelectedListener {
+public class Register2Activity extends AppCompatActivity implements AuthView {
 
     private static final String TAG = "WorkStatus";
     Button btn_kk_1, btn_ktp_2, btn_regis;
@@ -39,7 +39,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView, Ad
     EditText et_identity_no, et_name, et_password,et_email, et_contact, et_worked_status;
     Spinner s_workStatus;
     MultipartBody.Part photo_profil, photo_identity;
-    String workStatus;
+    String workStatus ="";
     private PreferenceHelper preferenceHelper;
     private AuthPresenter presenter;
 
@@ -96,7 +96,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView, Ad
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "registerClick: "+workStatus);
+                Log.d(TAG, "registerClick: "+s_workStatus.getSelectedItemId());
 
                 register(workStatus);
             }
@@ -146,7 +146,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView, Ad
     }
 
     private void register(String workStatus){
-        Log.d(TAG, "register: "+workStatus);
+        Log.d(TAG, "register: "+this.workStatus);
         RequestBody identity_no = RequestBody.create(okhttp3.MultipartBody.FORM, et_identity_no.getText().toString());
         RequestBody name = RequestBody.create(okhttp3.MultipartBody.FORM, et_name.getText().toString());
         RequestBody password = RequestBody.create(okhttp3.MultipartBody.FORM, et_password.getText().toString());
@@ -215,20 +215,20 @@ public class Register2Activity extends AppCompatActivity implements AuthView, Ad
     public void onFailure(Throwable t) {
         Toast.makeText(this, "Failed : "+t, Toast.LENGTH_SHORT).show();
     }
+//
+//    @Override
+//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+////            workStatus = parent.getItemAtPosition(position).toString();
+//        Toast.makeText(parent.getContext(), "ITEM : "+ parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+//        if (parent.getItemAtPosition(position).equals(0)){
+//            this.workStatus = "1";
+//        }else {
+//            this.workStatus = "0";
+//        };
+//    }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//            workStatus = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), "ITEM : "+ parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
-        if (parent.getItemAtPosition(position).toString() == "Bekerja"){
-            workStatus = "1";
-        }else {
-            workStatus = "0";
-        };
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        workStatus = "0";
-    }
+//    @Override
+//    public void onNothingSelected(AdapterView<?> parent) {
+//        this.workStatus = "0";
+//    }
 }

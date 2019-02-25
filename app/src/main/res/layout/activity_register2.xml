@@ -12,7 +12,8 @@
         android:layout_height="133dp"
         android:background="@drawable/ic_gradient2"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -284,7 +285,7 @@
                     android:id="@+id/tv_u_kk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Files"
+                    android:text="@string/no_files"
                     android:textColor="#5eb5a6"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -304,8 +305,4 @@
                 android:textColor="#fff" />
         </LinearLayout>
     </ScrollView>
-
-
-
-
 </android.support.constraint.ConstraintLayout>
