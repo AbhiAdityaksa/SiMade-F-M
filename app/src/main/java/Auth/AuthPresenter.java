@@ -41,10 +41,10 @@ public class AuthPresenter {
         });
     }
 
-    public void register(RequestBody identity_no, RequestBody name, RequestBody password, RequestBody email, RequestBody contact, MultipartBody.Part photo_profile, MultipartBody.Part photo_identity, RequestBody worked_status){
+    public void register(RequestBody no_ktp, RequestBody nama, RequestBody pass, RequestBody mail, RequestBody kontak, MultipartBody.Part pp, MultipartBody.Part ktp, RequestBody status_kerja){
         view.showLoading();
 
-        service.registration(identity_no,name,password,email,contact,photo_profile,photo_identity,worked_status)
+        service.registration(no_ktp,nama,pass,mail,kontak,pp, ktp, status_kerja)
         .enqueue(new Callback<User>() {
             @Override
             public void onResponse(retrofit2.Call<User> call, Response<User> response) {

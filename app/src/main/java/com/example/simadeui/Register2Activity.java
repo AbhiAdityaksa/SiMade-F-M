@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +22,8 @@ import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 import java.io.File;
 import java.util.regex.Pattern;
 
+import Api.ApiClient;
+import Api.ApiService;
 import Auth.AuthPresenter;
 import Auth.AuthView;
 import Helper.PreferenceHelper;
@@ -31,8 +32,10 @@ import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
-public class Register2Activity extends AppCompatActivity implements AuthView {
+public class Register2Activity extends AppCompatActivity implements AuthView{
 
+    private static final int IMG_REQUEST1 = 1000;
+    private static final int IMG_REQUEST2 = 2000;
     private static final String TAG = "WorkStatus";
     Button btn_kk_1, btn_ktp_2, btn_regis;
     TextView tv_kk_1, tv_ktp_2;
@@ -42,6 +45,8 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
     String workStatus ="";
     private PreferenceHelper preferenceHelper;
     private AuthPresenter presenter;
+    ApiService service;
+    private MainActivity Register2Activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +57,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1001);
         }
 
+        presenter = new AuthPresenter(this, ApiClient.getService(Register2Activity));
         btn_kk_1 = (Button) findViewById(R.id.btn_u_kk);
         tv_kk_1 = (TextView) findViewById(R.id.tv_u_kk);
         btn_ktp_2 = (Button) findViewById(R.id.btn_u_ktp);
@@ -69,6 +75,12 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         s_workStatus.setAdapter(adapter);
 
+        if(s_workStatus.getSelectedItemId() == 0){
+            workStatus = "1";
+        }else {
+            workStatus = "0";
+        }
+
         btn_kk_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +90,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
                         .withHiddenFiles(true) // Show hidden files and folders
                         .withFilter(Pattern.compile(".*\\.jpg$"))
                         .start();
+
             }
         });
 
@@ -96,8 +109,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
         btn_regis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "registerClick: "+s_workStatus.getSelectedItemId());
-
+                Log.d(TAG, "registerClick: "+workStatus);
                 register(workStatus);
             }
         });
@@ -110,6 +122,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == 1000 && resultCode == RESULT_OK) {
+
             String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
             // Do anything with file
             tv_kk_1.setText(filePath);
@@ -146,17 +159,17 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
     }
 
     private void register(String workStatus){
-        Log.d(TAG, "register: "+this.workStatus);
-        RequestBody identity_no = RequestBody.create(okhttp3.MultipartBody.FORM, et_identity_no.getText().toString());
-        RequestBody name = RequestBody.create(okhttp3.MultipartBody.FORM, et_name.getText().toString());
-        RequestBody password = RequestBody.create(okhttp3.MultipartBody.FORM, et_password.getText().toString());
-        RequestBody email = RequestBody.create(okhttp3.MultipartBody.FORM, et_email.getText().toString());
-        RequestBody contact = RequestBody.create(okhttp3.MultipartBody.FORM, et_contact.getText().toString());
-        RequestBody worked_status = RequestBody.create(okhttp3.MultipartBody.FORM, workStatus);
+        Log.d(TAG, "register: "+workStatus);
+        RequestBody no_ktp = RequestBody.create(okhttp3.MultipartBody.FORM, et_identity_no.getText().toString());
+        RequestBody nama = RequestBody.create(okhttp3.MultipartBody.FORM, et_name.getText().toString());
+        RequestBody pass = RequestBody.create(okhttp3.MultipartBody.FORM, et_password.getText().toString());
+        RequestBody mail = RequestBody.create(okhttp3.MultipartBody.FORM, et_email.getText().toString());
+        RequestBody kontak= RequestBody.create(okhttp3.MultipartBody.FORM, et_contact.getText().toString());
+        RequestBody status_kerja = RequestBody.create(okhttp3.MultipartBody.FORM, workStatus);
 
-        if(validate(et_identity_no.getText().toString(),et_name.getText().toString(),et_password.getText().toString(),et_email.getText().toString(), et_contact.getText().toString())){
-            presenter.register(identity_no,name,password,email,contact,photo_profil,photo_identity,worked_status);
-        }
+//        if(validate(et_identity_no.getText().toString(),et_name.getText().toString(),et_password.getText().toString(),et_email.getText().toString(), et_contact.getText().toString())){
+            presenter.register(no_ktp,nama,pass,mail, kontak, photo_profil, photo_identity, status_kerja);
+//        }
 
     }
 
@@ -215,20 +228,4 @@ public class Register2Activity extends AppCompatActivity implements AuthView {
     public void onFailure(Throwable t) {
         Toast.makeText(this, "Failed : "+t, Toast.LENGTH_SHORT).show();
     }
-//
-//    @Override
-//    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-////            workStatus = parent.getItemAtPosition(position).toString();
-//        Toast.makeText(parent.getContext(), "ITEM : "+ parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
-//        if (parent.getItemAtPosition(position).equals(0)){
-//            this.workStatus = "1";
-//        }else {
-//            this.workStatus = "0";
-//        };
-//    }
-
-//    @Override
-//    public void onNothingSelected(AdapterView<?> parent) {
-//        this.workStatus = "0";
-//    }
 }
