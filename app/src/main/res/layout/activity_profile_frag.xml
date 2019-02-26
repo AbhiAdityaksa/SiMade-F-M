@@ -77,22 +77,26 @@
                     app:cardCornerRadius="10dp">
 
                     <TextView
+                        android:id="@+id/tv_det_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="Details Profile"
                         android:layout_marginTop="-25dp"
                         android:textSize="19sp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal"
+                        android:clickable="true" />
 
                     <TextView
+                        android:id="@+id/tv_change_pass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="30dp"
                         android:text="Change Password"
                         android:textStyle="normal"
                         android:textSize="19sp"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center"
+                        android:clickable="true" />
 
                 </android.support.v7.widget.CardView>
 
