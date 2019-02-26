@@ -66,66 +66,98 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="92dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
                             android:text="Pak Made"
                             android:textAlignment="center"
                             android:textSize="16sp"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="102dp" />
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.498"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
 
                         <TextView
                             android:id="@+id/tv_kk"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="16dp"
                             android:text="No KK"
                             android:textSize="16sp"
                             android:textStyle="normal"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="141dp" />
+                            app:layout_constraintBottom_toTopOf="@+id/tv_ktp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.025"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="1.0" />
 
                         <TextView
                             android:id="@+id/tv_ktp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
+                            android:layout_marginBottom="20dp"
                             android:text="No KTP"
                             android:textSize="16sp"
                             android:textStyle="normal"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="185dp" />
+                            app:layout_constraintBottom_toTopOf="@+id/tv_work"
+                            tools:layout_editor_absoluteX="16dp" />
 
                         <TextView
                             android:id="@+id/tv_work"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="20dp"
                             android:layout_gravity="left"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="20dp"
                             android:text="Pekerjaan"
                             android:textSize="16sp"
                             android:textStyle="normal"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="222dp" />
+                            app:layout_constraintBottom_toTopOf="@+id/tv_ttl"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.028"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/tv_ttl"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="20dp"
                             android:text="Tempat, Tanggal Lahir"
                             android:textSize="16sp"
                             android:textStyle="normal"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="259dp" />
+                            app:layout_constraintBottom_toTopOf="@+id/tv_alamat"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.041"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                         <TextView
                             android:id="@+id/tv_alamat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="80dp"
                             android:text="Alamat Rumah"
                             android:textSize="16sp"
                             android:textStyle="normal"
-                            tools:layout_editor_absoluteX="16dp"
-                            tools:layout_editor_absoluteY="300dp" />
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.032"
+                            app:layout_constraintStart_toStartOf="parent" />
 
                     </android.support.constraint.ConstraintLayout>
 
