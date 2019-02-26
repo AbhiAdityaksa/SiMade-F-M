@@ -11,6 +11,9 @@ public class PreferenceHelper {
     private final String LOGIN="login";
     private final String TOKEN="token";
     private final String NAME="name";
+    private final String ID ="id";
+    private final String WORK ="work";
+
 
 
     public PreferenceHelper(Context context) {
@@ -37,6 +40,26 @@ public class PreferenceHelper {
         return sharedPreferences.getString(NAME,"");
     }
 
+    public void setId(Integer id){
+        sharedPreferences.edit()
+                .putInt(ID,id)
+                .apply();
+    }
+
+    public String getId(){
+        return sharedPreferences.getString(ID,"");
+    }
+
+    public void setWork(String work){
+        sharedPreferences.edit()
+                .putString(WORK,work)
+                .apply();
+    }
+
+    public String getWork(){
+        return sharedPreferences.getString(WORK,"");
+    }
+
 
     public void setToken(String token){
         sharedPreferences.edit().putString(TOKEN,token).apply();
@@ -57,5 +80,7 @@ public class PreferenceHelper {
         setLogin(true);
         setToken(user.getToken());
         setName(user.getName());
+        setId(user.getId());
+        setWork(user.getWorkedStatus());
     }
 }

@@ -18,7 +18,8 @@ public class UtamaActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            Fragment selectfrag = null;
+            Fragment selectfrag = new HomeActivityFrag();
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     selectfrag = new HomeActivityFrag();
@@ -31,7 +32,8 @@ public class UtamaActivity extends AppCompatActivity {
                     break;
             }
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelayout,selectfrag).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, selectfrag).commit();
+
             return true;
         }
     };
