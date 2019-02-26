@@ -40,8 +40,30 @@ public class User{
 	@SerializedName("photo_identity")
 	private String photoIdentity;
 
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
+	}
+
 	@SerializedName("email")
 	private String email;
+
+	@SerializedName("error")
+	private String error;
+
+	@SerializedName("success")
+	private Success success;
+
+	public Success getSuccess() {
+		return success;
+	}
+
+	public void setSuccess(Success success) {
+		this.success = success;
+	}
 
 	public void setVerifiedStatus(String verifiedStatus){
 		this.verifiedStatus = verifiedStatus;
@@ -163,7 +185,19 @@ public class User{
 			",id = '" + id + '\'' + 
 			",identity_no = '" + identityNo + '\'' + 
 			",photo_identity = '" + photoIdentity + '\'' + 
-			",email = '" + email + '\'' + 
+			",email = '" + email + '\'' +
+			",error = '" + error + '\'' +
+			",success = '" + success + '\'' +
 			"}";
 		}
+
+
+
+//	@Override
+//	public String toString(){
+//		return
+//		"Response{" +
+//			"success = '" + success + '\'' +
+//			"}";
+//	}
 }

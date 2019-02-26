@@ -14,17 +14,16 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("login")
-    Call<User> login(@Field("email") String email, @Field("password") String password);
+    Call<User>login(@Field("email") String email, @Field("password") String password);
 
     @Multipart
-    @POST("registration")
-    Call<User> registration(@Part("identity_no") RequestBody no_ktp,
-                            @Part("name") RequestBody nama,
-                            @Part("password") RequestBody pass,
-                            @Part("email") RequestBody mail,
-                            @Part("contact") RequestBody kontak,
-                            @Part("photo_profile") MultipartBody.Part pp,
-                            @Part("photo_identity") MultipartBody.Part ktp,
-                            @Part("worked_status") RequestBody status_kerja);
+    @POST("register")
+    Call<User>registration(@Part MultipartBody.Part photo_identity,
+                            @Part("identity_no") RequestBody identity_no,
+                            @Part("name") RequestBody name,
+                            @Part("password") RequestBody password,
+                            @Part("email") RequestBody email,
+                            @Part("contact") RequestBody contact,
+                            @Part("worked_status") RequestBody worked_status);
 
 }

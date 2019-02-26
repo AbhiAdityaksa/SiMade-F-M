@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     }
 
     @Override
-    public void onError() {
+    public void onError(User user) {
         Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
     }
 

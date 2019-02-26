@@ -252,44 +252,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_s_kk"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:text="Upload Scan Kartu Keluarga"
-                android:textColor="#5eb5a6"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="10dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btn_u_kk"
-                    android:layout_width="150dp"
-                    android:layout_height="43dp"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/btn_upload"
-                    android:text="Upload"
-                    android:textColor="#fff" />
-
-                <TextView
-                    android:id="@+id/tv_u_kk"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_files"
-                    android:textColor="#5eb5a6"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
             <Button
                 android:id="@+id/btn_regis"
                 android:layout_width="150dp"

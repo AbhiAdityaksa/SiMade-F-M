@@ -1,6 +1,7 @@
 package Auth;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import Api.ApiService;
@@ -11,6 +12,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.http.Multipart;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class AuthPresenter {
     private AuthView view;
@@ -26,10 +29,14 @@ public class AuthPresenter {
         service.login(email,password).enqueue(new Callback<User>() {
             @Override
             public void onResponse(retrofit2.Call<User> call, Response<User> response) {
+
                 if (response.isSuccessful()){
                     view.onSuccess(response.body());
+//                    Log.d(TAG, "LOGIN: "+ user.getId());
                 }else {
-                    view.onError();
+
+                    view.onError(response.body());
+//                    Log.d(TAG, "LOGIN: "+ user.getSuccess());
                 }
             }
 
@@ -41,10 +48,9 @@ public class AuthPresenter {
         });
     }
 
-    public void register(RequestBody no_ktp, RequestBody nama, RequestBody pass, RequestBody mail, RequestBody kontak, MultipartBody.Part pp, MultipartBody.Part ktp, RequestBody status_kerja){
+    public void register(MultipartBody.Part photo_identity, RequestBody identity_no, RequestBody name, RequestBody password, RequestBody email, RequestBody contact, RequestBody worked_status){
         view.showLoading();
-
-        service.registration(no_ktp,nama,pass,mail,kontak,pp, ktp, status_kerja)
+        service.registration(photo_identity,identity_no,name,password,email,contact, worked_status)
         .enqueue(new Callback<User>() {
             @Override
             public void onResponse(retrofit2.Call<User> call, Response<User> response) {
@@ -52,14 +58,15 @@ public class AuthPresenter {
                     view.onSuccess(response.body());
 
                 }else {
-                    view.onError();
+                    view.onError(response.body());
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+t);
                 view.onFailure(t);
-                view.hideLoading();
+//                view.hideLoading();
             }
         });
     }

@@ -31,16 +31,16 @@ public class HomeActivityFrag extends Fragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         v = inflater.inflate(R.layout.activity_home_frag, container, false);
         recyclerNews = v.findViewById(R.id.recycler_news);
-        setLinearLayout();
+//        setLinearLayout();
         return v;
 
     }
 
-    public void setLinearLayout(){
-        recyclerNewsAdapter = new RecyclerNewsAdapter(getActivity(),newsList);
-
-        recyclerNews.setAdapter(recyclerNewsAdapter);
-        recyclerNews.setLayoutManager(recyclerView);
-    }
+//    public void setLinearLayout(){
+//        recyclerNewsAdapter = new RecyclerNewsAdapter(getActivity(),newsList);
+//
+//        recyclerNews.setAdapter(recyclerNewsAdapter);
+//        recyclerNews.setLayoutManager(recyclerView);
+//    }
 
 }

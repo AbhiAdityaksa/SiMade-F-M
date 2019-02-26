@@ -3,7 +3,11 @@ package com.example.simadeui;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +24,7 @@ import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 import Api.ApiClient;
@@ -31,11 +36,13 @@ import Model.User;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Register2Activity extends AppCompatActivity implements AuthView{
 
-    private static final int IMG_REQUEST1 = 1000;
-    private static final int IMG_REQUEST2 = 2000;
+    private static final int IMG_REQUEST = 1000;
     private static final String TAG = "WorkStatus";
     Button btn_kk_1, btn_ktp_2, btn_regis;
     TextView tv_kk_1, tv_ktp_2;
@@ -46,7 +53,6 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
     private PreferenceHelper preferenceHelper;
     private AuthPresenter presenter;
     ApiService service;
-    private MainActivity Register2Activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +63,7 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1001);
         }
 
-        presenter = new AuthPresenter(this, ApiClient.getService(Register2Activity));
-        btn_kk_1 = (Button) findViewById(R.id.btn_u_kk);
-        tv_kk_1 = (TextView) findViewById(R.id.tv_u_kk);
+        presenter = new AuthPresenter(this, ApiClient.getService(this));
         btn_ktp_2 = (Button) findViewById(R.id.btn_u_ktp);
         tv_ktp_2 = (TextView) findViewById(R.id.tv_u_ktp);
         btn_regis = (Button) findViewById(R.id.btn_regis);
@@ -81,28 +85,10 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
             workStatus = "0";
         }
 
-        btn_kk_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new MaterialFilePicker()
-                        .withActivity(Register2Activity.this)
-                        .withRequestCode(1000)
-                        .withHiddenFiles(true) // Show hidden files and folders
-                        .withFilter(Pattern.compile(".*\\.jpg$"))
-                        .start();
-
-            }
-        });
-
         btn_ktp_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MaterialFilePicker()
-                        .withActivity(Register2Activity.this)
-                        .withRequestCode(2000)
-                        .withHiddenFiles(true) // Show hidden files and folders
-                        .withFilter(Pattern.compile(".*\\.jpg$"))
-                        .start();
+                selectImage();
             }
         });
 
@@ -117,31 +103,48 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
 
     }
 
+    private void selectImage(){
+        Intent intent= new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent,IMG_REQUEST);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1000 && resultCode == RESULT_OK) {
+        if (requestCode==IMG_REQUEST && resultCode==RESULT_OK&&data!=null){
+            Uri selectedImage=data.getData();
+            String wholeID = DocumentsContract.getDocumentId(selectedImage);
 
-            String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-            // Do anything with file
-            tv_kk_1.setText(filePath);
+            // Split at colon, use second item in the array
+            String id = wholeID.split(":")[1];
+
+            String[] column = { MediaStore.Images.Media.DATA };
+
+            // where id is equal to
+            String sel = MediaStore.Images.Media._ID + "=?";
+
+            Cursor cursor = getContentResolver().
+                    query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                            column, sel, new String[]{ id }, null);
+
+            String filePath = "";
+
+            int columnIndex = cursor.getColumnIndex(column[0]);
+
+            if (cursor.moveToFirst()) {
+                filePath = cursor.getString(columnIndex);
+            }
+            cursor.close();
             File file = new File(filePath);
+
             RequestBody reqFile = RequestBody.create(MediaType.parse("image/*"), file);
-            photo_profil = MultipartBody.Part.createFormData("image", file.getName(), reqFile);
 
-
-
-
-        }else if (requestCode == 2000 && resultCode == RESULT_OK) {
-            String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-            // Do anything with file
+            photo_identity = MultipartBody.Part.createFormData("photo_identity", file.getName(), reqFile);
             tv_ktp_2.setText(filePath);
-            File file = new File(filePath);
-            RequestBody reqFile1 = RequestBody.create(MediaType.parse("image/*"), file);
-            photo_identity = MultipartBody.Part.createFormData("image", file.getName(), reqFile1);
         }
-
     }
 
     @Override
@@ -160,15 +163,19 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
 
     private void register(String workStatus){
         Log.d(TAG, "register: "+workStatus);
-        RequestBody no_ktp = RequestBody.create(okhttp3.MultipartBody.FORM, et_identity_no.getText().toString());
-        RequestBody nama = RequestBody.create(okhttp3.MultipartBody.FORM, et_name.getText().toString());
-        RequestBody pass = RequestBody.create(okhttp3.MultipartBody.FORM, et_password.getText().toString());
-        RequestBody mail = RequestBody.create(okhttp3.MultipartBody.FORM, et_email.getText().toString());
-        RequestBody kontak= RequestBody.create(okhttp3.MultipartBody.FORM, et_contact.getText().toString());
-        RequestBody status_kerja = RequestBody.create(okhttp3.MultipartBody.FORM, workStatus);
+        RequestBody identity_no = RequestBody.create(okhttp3.MultipartBody.FORM, et_identity_no.getText().toString());
+        RequestBody name = RequestBody.create(okhttp3.MultipartBody.FORM, et_name.getText().toString());
+        RequestBody password = RequestBody.create(okhttp3.MultipartBody.FORM, et_password.getText().toString());
+        RequestBody email = RequestBody.create(okhttp3.MultipartBody.FORM, et_email.getText().toString());
+        RequestBody contact= RequestBody.create(okhttp3.MultipartBody.FORM, et_contact.getText().toString());
+        RequestBody worked_status = RequestBody.create(okhttp3.MultipartBody.FORM, workStatus);
+
+        Log.d(TAG, "photo: "+photo_identity);
+        Log.d(TAG, "no_ktp: "+et_identity_no.getText().toString());
+        Log.d(TAG, "name: "+et_name.getText().toString());
 
 //        if(validate(et_identity_no.getText().toString(),et_name.getText().toString(),et_password.getText().toString(),et_email.getText().toString(), et_contact.getText().toString())){
-            presenter.register(no_ktp,nama,pass,mail, kontak, photo_profil, photo_identity, status_kerja);
+            presenter.register(photo_identity,identity_no,name,password,email, contact, worked_status);
 //        }
 
     }
@@ -220,8 +227,8 @@ public class Register2Activity extends AppCompatActivity implements AuthView{
     }
 
     @Override
-    public void onError() {
-        Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
+    public void onError(User user) {
+        Toast.makeText(this, "Error :", Toast.LENGTH_SHORT).show();
     }
 
     @Override
