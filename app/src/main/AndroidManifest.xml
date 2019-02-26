@@ -17,8 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="Admin.Notifikasi.AdminNotifActivity"></activity>
-        <activity android:name="Admin.AdminActivity" />
+        <activity android:name="admin.notifikasi.AdminNotifActivity"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name="admin.AdminActivity"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".BerhasilActivity" />
         <activity android:name=".TanyaActivity" />
         <activity android:name=".DetPostActivity" />
