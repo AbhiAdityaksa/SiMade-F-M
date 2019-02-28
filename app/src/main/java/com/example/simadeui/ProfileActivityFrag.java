@@ -9,10 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import Helper.PreferenceHelper;
+
 public class ProfileActivityFrag extends Fragment{
     View v;
     TextView tv_det_profile;
     TextView tv_chang_pass;
+    TextView tv_name;
+    TextView tv_work;
+
+
+    String name;
+    String work;
+
+    PreferenceHelper preferenceHelper;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -20,6 +30,16 @@ public class ProfileActivityFrag extends Fragment{
 
         tv_det_profile = v.findViewById(R.id.tv_det_profile);
         tv_chang_pass = v.findViewById(R.id.tv_change_pass);
+        tv_name = v.findViewById(R.id.tv_nama);
+        tv_work = v.findViewById(R.id.tv_pekerjaan);
+
+        preferenceHelper = new PreferenceHelper(getActivity());
+
+        name = preferenceHelper.getName();
+        work = preferenceHelper.getWork();
+        tv_name.setText(name);
+        tv_work.setText(work);
+
 
         tv_det_profile.setOnClickListener(new View.OnClickListener() {
             @Override

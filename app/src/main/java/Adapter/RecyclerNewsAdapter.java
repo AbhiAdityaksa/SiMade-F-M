@@ -18,13 +18,14 @@ import Model.News;
 public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapter.MyViewHolder> {
 
     private Context nContext;
-    private List<News> nData;
+//    private List<News> nData;
+    private List<String> nData;
     private onClickListener onClickListener;
     private String date = "Sabtu, 2 Februari 2019";
     private String title = "Lorem ipsum";
     private String berita = "Aliquam quis faucibus tellus, ac ultrices eros. Nulla facilisi. Praesent aliquet dui eros, id ullamcorper odio ultricies nec. Phasellus in nibh molestie, luctus turpis eu, cursus felis. Phasellus viverra nisi felis, vitae elementum ex ornare sit amet. Integer ut arcu elit. Suspendisse urna purus, hendrerit vel mi ac, dignissim rutrum orci. Nullam sodales convallis sem in ullamcorper. In eleifend lacus non tincidunt porta.";
 
-    public RecyclerNewsAdapter(Context nContext, List<News> nData){
+    public RecyclerNewsAdapter(Context nContext, List<String> nData){
         this.nContext = nContext;
         this.nData = nData;
     }
@@ -51,9 +52,10 @@ public class RecyclerNewsAdapter extends RecyclerView.Adapter<RecyclerNewsAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        final News news = nData.get(i);
-        myViewHolder.tv_date.setText(date);
-        myViewHolder.tv_title.setText(title);
+//        final News news = nData.get(i);
+        String data = nData.get(i);
+//        myViewHolder.tv_date.setText(date);
+//        myViewHolder.tv_title.setText(title);
         myViewHolder.tv_news.setText(berita);
 
     }
