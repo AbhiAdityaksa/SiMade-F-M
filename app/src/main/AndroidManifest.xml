@@ -17,12 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name="com.example.simadeui.admin.writer.AdminWriterActivity"/>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".admin.writer.AdminWriterActivity" />
         <activity
-            android:name="com.example.simadeui.admin.notifikasi.AdminNotifActivity"
+            android:name=".admin.notifikasi.AdminNotifActivity"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name="com.example.simadeui.admin.AdminActivity"
+            android:name=".admin.AdminActivity"
             tools:ignore="InnerclassSeparator" />
         <activity android:name=".BerhasilActivity" />
         <activity android:name=".TanyaActivity" />
@@ -35,7 +36,7 @@
             android:label="@string/title_activity_home1" />
         <activity android:name=".Register2Activity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

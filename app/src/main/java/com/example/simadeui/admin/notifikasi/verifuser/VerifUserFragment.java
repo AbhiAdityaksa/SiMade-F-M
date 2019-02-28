@@ -12,6 +12,9 @@ import com.example.simadeui.R;
 
 public class VerifUserFragment extends Fragment {
 
+    public VerifUserFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

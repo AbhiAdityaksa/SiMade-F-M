@@ -13,8 +13,7 @@ public class PreferenceHelper {
     private final String NAME="name";
     private final String ID ="id";
     private final String WORK ="work";
-
-
+    private final String PERMISSION = "permission";
 
     public PreferenceHelper(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
@@ -69,6 +68,13 @@ public class PreferenceHelper {
         return sharedPreferences.getString(TOKEN,"");
     }
 
+    public void setPermission(String permission){
+        sharedPreferences.edit().putString(PERMISSION, permission).apply();
+    }
+
+    public String getPermission() {
+        return sharedPreferences.getString(PERMISSION, "");
+    }
 
     public void setLogout(){
         sharedPreferences.edit()
@@ -82,5 +88,6 @@ public class PreferenceHelper {
         setName(user.getName());
         setId(user.getId());
         setWork(user.getWorkedStatus());
+        setPermission(user.getPermission());
     }
 }

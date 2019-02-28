@@ -12,6 +12,9 @@ import com.example.simadeui.R;
 
 public class UserQuestionFragment extends Fragment {
 
+    public UserQuestionFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

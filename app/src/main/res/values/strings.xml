@@ -15,4 +15,8 @@
     <string name="admin_home">Home</string>
     <string name="admin_grafik">Grafik</string>
     <string name="admin_akun">Akun</string>
+
+    <string name="title_user_question_admin">Pertanyaan</string>
+    <string name="title_user_report_admin">Laporan</string>
+    <string name="title_verif_user_admin">Verifikasi</string>
 </resources>

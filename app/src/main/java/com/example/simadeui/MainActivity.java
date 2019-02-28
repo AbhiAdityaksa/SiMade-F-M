@@ -10,10 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.simadeui.admin.AdminActivity;
+
 import Api.ApiClient;
 import Api.ApiService;
 import Auth.AuthPresenter;
 import Auth.AuthView;
+import Helper.ConstantURL;
 import Helper.PreferenceHelper;
 import Model.User;
 
@@ -72,7 +75,11 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     @Override
     public void onSuccess(User user) {
         preferenceHelper.setUser(user);
-        startActivity(new Intent(MainActivity.this,UtamaActivity.class));
+        if (user.getPermission().equals(String.valueOf(ConstantURL.Permission.USER))){
+            startActivity(new Intent(MainActivity.this,UtamaActivity.class));
+        } else {
+            startActivity(new Intent(MainActivity.this, AdminActivity.class));
+        }
         finish();
         Toast.makeText(this, "Login Berhasil", Toast.LENGTH_SHORT).show();
     }
