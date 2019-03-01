@@ -12,6 +12,9 @@ import com.example.simadeui.R;
 
 public class VillageInfoFragment extends Fragment {
 
+    public VillageInfoFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

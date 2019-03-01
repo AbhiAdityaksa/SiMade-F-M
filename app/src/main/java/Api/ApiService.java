@@ -1,11 +1,16 @@
 package Api;
 
+import java.util.List;
+
+import Model.ReportCategory;
 import Model.User;
+import Model.VillagerWorkerAdmin;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -26,4 +31,9 @@ public interface ApiService {
                             @Part("contact") RequestBody contact,
                             @Part("worked_status") RequestBody worked_status);
 
+    @GET("admin/show/villager/worked")
+    Call<VillagerWorkerAdmin> villagerWorked();
+
+    @GET("show/report-category")
+    Call<List<ReportCategory>> showReportCategory();
 }

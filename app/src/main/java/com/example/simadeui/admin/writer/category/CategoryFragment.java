@@ -12,6 +12,9 @@ import com.example.simadeui.R;
 
 public class CategoryFragment extends Fragment {
 
+    public CategoryFragment() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

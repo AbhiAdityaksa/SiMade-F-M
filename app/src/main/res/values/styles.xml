@@ -9,7 +9,7 @@
     </style>
 
     <style name="SlidingTabs">
-        <item name="tabTextColor">#AEEEE2</item>
+        <item name="tabTextColor">#7CCAB9</item>
         <item name="tabSelectedTextColor">#5EB5A6</item>
         <item name="tabIndicatorColor">#5EB5A6</item>
         <item name="tabIndicatorHeight">3dp</item>

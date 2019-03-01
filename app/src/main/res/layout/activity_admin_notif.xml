@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/actionbar1"
+    <LinearLayout
+        android:id="@+id/action_bar_notif_admin"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/background">
 
         <ImageView
             android:id="@+id/back_notif_admin"
@@ -20,20 +22,18 @@
             android:backgroundTint="#5EB5A6"
             android:elevation="1dp"/>
 
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/admin_notif_tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabMode="fixed"
-        app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
-        style="@style/SlidingTabs"/>
+        android:layout_height="80dp"
+        style="@style/SlidingTabs"
+        android:background="@color/background"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

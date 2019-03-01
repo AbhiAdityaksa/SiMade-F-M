@@ -6,201 +6,209 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_launcher_background"
-        tools:ignore="VectorDrawableCompat"
-        android:layout_marginTop="50dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Admin"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#5EB5A6"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"/>
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tulis"
-            android:textColor="#fff"
-            android:textSize="20sp"
-            android:typeface="normal"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/btn_login"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="40dp"
-            android:padding="10dp"
-            android:textAllCaps="false"/>
-
-    </RelativeLayout>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="10dp"
-        android:layout_margin="15dp">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:background="@drawable/bg_shadow"
-            android:padding="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ly_warga"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="VectorDrawableCompat"
+                android:layout_marginTop="50dp"/>
+
+            <TextView
+                android:id="@+id/tv_name_admin_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
+                android:text="Admin"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#5EB5A6"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"/>
 
-                <TextView
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <Button
+                    android:id="@+id/btn_admin_writer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jumlah Warga"
-                    android:textSize="15sp"
+                    android:text="Tulis"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    android:typeface="normal"
                     android:textStyle="bold"
-                    android:textColor="#5EB5A6"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/btn_login"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="40dp"
+                    android:padding="10dp"
+                    android:textAllCaps="false"/>
 
-                <TextView
-                    android:id="@+id/tvwarga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="300"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"/>
+            </RelativeLayout>
 
-            </LinearLayout>
-
-            <View
-                android:id="@+id/batas1"
-                android:layout_width="1dp"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:background="#5EB5A6"
-                android:layout_toRightOf="@id/ly_warga"/>
+                android:background="@drawable/bg_shadow"
+                android:padding="15dp"
+                android:layout_margin="14dp">
+
+                <LinearLayout
+                    android:id="@+id/ly_warga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Jumlah Warga"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#5EB5A6"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/tvwarga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="300"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/batas1"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#5EB5A6"
+                    android:layout_toRightOf="@id/ly_warga"/>
+
+                <LinearLayout
+                    android:id="@+id/ly_kerja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bekerja"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#5EB5A6"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/tvkerja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/batas2"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#5EB5A6"
+                    android:layout_toLeftOf="@id/ly_tidak_kerja"/>
+
+                <LinearLayout
+                    android:id="@+id/ly_tidak_kerja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tidak Bekerja"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#5EB5A6"/>
+
+                    <TextView
+                        android:id="@+id/tvtidakkerja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="150"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/ly_kerja"
-                android:layout_width="wrap_content"
+                android:id="@+id/history"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginRight="20dp">
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:padding="15dp"
+                android:background="@drawable/bg_shadow"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bekerja"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="#5EB5A6"
-                    android:layout_gravity="center_horizontal"/>
-
-                <TextView
-                    android:id="@+id/tvkerja"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"/>
-
-            </LinearLayout>
-
-            <View
-                android:id="@+id/batas2"
-                android:layout_width="1dp"
-                android:layout_height="90dp"
-                android:background="#5EB5A6"
-                android:layout_toLeftOf="@id/ly_tidak_kerja"/>
-
-            <LinearLayout
-                android:id="@+id/ly_tidak_kerja"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tidak Bekerja"
+                    android:text="History"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     android:textColor="#5EB5A6"/>
 
-                <TextView
-                    android:id="@+id/tvtidakkerja"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="150"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#5EB5A6"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v7.widget.RecyclerView>
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-    </android.support.v7.widget.CardView>
-
-    <LinearLayout
-        android:id="@+id/history"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:padding="15dp"
-        android:background="@drawable/bg_shadow"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#5EB5A6"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#5EB5A6"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_history"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
