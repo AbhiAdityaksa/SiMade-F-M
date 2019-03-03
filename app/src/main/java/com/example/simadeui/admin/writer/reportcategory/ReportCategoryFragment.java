@@ -1,9 +1,11 @@
 package com.example.simadeui.admin.writer.reportcategory;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.simadeui.R;
+import com.example.simadeui.admin.writer.reportcategory.addreportcategory.AddReportCategoryActivity;
 
 import java.util.List;
 
@@ -29,6 +32,7 @@ public class ReportCategoryFragment extends Fragment implements ReportCategoryAd
     private ReportCategory reportCategory;
     private ProgressDialog progressDialog;
     private TextView tvKosong;
+    private FloatingActionButton floatingActionButton;
 
     public ReportCategoryFragment() {
     }
@@ -39,6 +43,7 @@ public class ReportCategoryFragment extends Fragment implements ReportCategoryAd
         View view = inflater.inflate(R.layout.fragment_report_category_admin, container, false);
         rvReportCategory = view.findViewById(R.id.rv_report_category_admin);
         tvKosong = view.findViewById(R.id.tv_report_category_admin_kosong);
+        floatingActionButton = view.findViewById(R.id.add_report_category);
         return view;
     }
 
@@ -51,6 +56,14 @@ public class ReportCategoryFragment extends Fragment implements ReportCategoryAd
 
         presenter = new ReportCategoryPresenter(this, ApiClient.getService(getContext()));
         presenter.getReportCategory();
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AddReportCategoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -21,13 +21,15 @@ public class AdminNotifActivity extends AppCompatActivity {
     private int[] navIcons = {
         R.drawable.ic_verified_user,
         R.drawable.ic_report,
-        R.drawable.ic_question
+        R.drawable.ic_question,
+        R.drawable.ic_attach_money
     };
 
     private int[] navLabels = {
         R.string.title_verif_user_admin,
         R.string.title_user_report_admin,
-        R.string.title_user_question_admin
+        R.string.title_user_question_admin,
+        R.string.title_verif_carity_admin
     };
 
     @Override

@@ -17,7 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".admin.writer.category.addcategory.AddCategoryActivity"></activity>
+        <activity android:name=".admin.writer.reportcategory.addreportcategory.AddReportCategoryActivity" />
+        <activity android:name=".admin.writer.villageinfo.addvillageinfo.AddVillageInfoActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".admin.writer.AdminWriterActivity" />
         <activity
             android:name=".admin.notifikasi.AdminNotifActivity"

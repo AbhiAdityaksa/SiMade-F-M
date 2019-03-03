@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".admin.writer.villageinfo.addvillageinfo.AddVillageInfoActivity">
+
+    <LinearLayout
+        android:id="@+id/actionbar1"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/background">
+
+        <ImageView
+            android:id="@+id/back_add_village_info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_arrow"
+            android:layout_marginHorizontal="10dp"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="#5EB5A6"
+            android:elevation="1dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Tambah Info Desa"
+                android:textColor="#5eb5a6"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="Kategori Info Desa"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <Spinner
+                android:id="@+id/s_category_info"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_outline"
+                android:padding="10dp"
+                android:textColorHint="#5eb5a6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:text="Nama Info"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/et_info_name"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_outline"
+                android:hint="Masukkan Nama Info Desa"
+                android:padding="10dp"
+                android:textColorHint="#5eb5a6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:text="Deskripsi Info"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/et_info_desc"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/et_outline"
+                android:hint="Masukkan Deskripsi Info Desa"
+                android:padding="10dp"
+                android:textColorHint="#5eb5a6" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="Upload Foto Info Desa"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_u_foto_info"
+                    android:layout_width="150dp"
+                    android:layout_height="43dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_upload"
+                    android:text="Upload"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_u_foto_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Files"
+                    android:textColor="#5eb5a6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_batas_akhir_sumbangan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="Batas Akhir Menyumbang"
+                android:textColor="#5eb5a6"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/btn_tgl_valid"
+                    android:layout_width="150dp"
+                    android:layout_height="43dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_upload"
+                    android:text="Atur Ulang"
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_tgl_valid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12-10-2019"
+                    android:textColor="#5eb5a6"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_save_info"
+                android:layout_width="150dp"
+                android:layout_height="43dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/btn_shadow"
+                android:elevation="10dp"
+                android:text="simpan"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -19,6 +19,7 @@
     <string name="title_user_question_admin">Pertanyaan</string>
     <string name="title_user_report_admin">Laporan</string>
     <string name="title_verif_user_admin">Verifikasi</string>
+    <string name="title_verif_carity_admin">Verif Cart</string>
 
     <string name="title_info_desa_admin">Info Desa</string>
     <string name="title_report_category_admin">Kat Report</string>
