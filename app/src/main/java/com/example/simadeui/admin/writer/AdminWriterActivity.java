@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,17 +16,20 @@ public class AdminWriterActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private ImageView btnBack;
 
     private int[] navIcons = {
         R.drawable.ic_info_outline,
         R.drawable.ic_view_list,
-        R.drawable.ic_list
+        R.drawable.ic_list,
+        R.drawable.ic_attach_money
     };
 
     private int[] navLabels = {
         R.string.title_info_desa_admin,
         R.string.title_report_category_admin,
-        R.string.title_category_admin
+        R.string.title_category_admin,
+        R.string.title_data_sumbangan_admin
     };
 
     @Override
@@ -34,11 +38,13 @@ public class AdminWriterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_writer);
 
         viewPager = findViewById(R.id.view_pager_admin_writer);
+        btnBack = findViewById(R.id.back_writer_admin);
         AdminWriterFragmentPagerAdapter adapter = new AdminWriterFragmentPagerAdapter(this, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout = findViewById(R.id.admin_writer_tab);
         tabLayout.setupWithViewPager(viewPager);
         createTabIcons(tabLayout);
+        setBtnBack();
     }
 
     private void createTabIcons(TabLayout tabLayout) {
@@ -53,5 +59,14 @@ public class AdminWriterActivity extends AppCompatActivity {
 
             tabLayout.getTabAt(i).setCustomView(tab);
         }
+    }
+
+    private void setBtnBack(){
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

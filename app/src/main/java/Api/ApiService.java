@@ -2,6 +2,7 @@ package Api;
 
 import java.util.List;
 
+import Model.HistoryResponse;
 import Model.ReportCategory;
 import Model.User;
 import Model.VillagerWorkerAdmin;
@@ -36,4 +37,7 @@ public interface ApiService {
 
     @GET("show/report-category")
     Call<List<ReportCategory>> showReportCategory();
+
+    @GET("admin/show/history")
+    Call<List<HistoryResponse>> showHistory();
 }

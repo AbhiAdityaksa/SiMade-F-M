@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ public class AdminNotifActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private ImageView btnBack;
 
     private int[] navIcons = {
         R.drawable.ic_verified_user,
@@ -34,11 +36,19 @@ public class AdminNotifActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_notif);
 
         viewPager = findViewById(R.id.viewpager);
+        btnBack = findViewById(R.id.back_notif_admin);
         NotifikasiFragmentPagerAdapter adapter = new NotifikasiFragmentPagerAdapter(this, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout = findViewById(R.id.admin_notif_tab);
         tabLayout.setupWithViewPager(viewPager);
         createTabIcons(tabLayout);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void createTabIcons(TabLayout tabLayout){
