@@ -43,6 +43,7 @@ public class AuthPresenter {
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 view.onFailure(t);
+                Log.d(TAG, "onFailure: "+t);
                 view.hideLoading();
             }
         });

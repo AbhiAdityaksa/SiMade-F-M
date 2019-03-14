@@ -24,5 +24,9 @@ public class ConstantURL {
         public static String photoCarity(String file){
             return BASE_URL+"uploads/carity/"+file;
         }
+
+        public static String photoInfo(String file){
+            return BASE_URL+"uploads/info/"+file;
+        }
     }
 }

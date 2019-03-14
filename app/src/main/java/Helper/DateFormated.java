@@ -16,4 +16,21 @@ public class DateFormated {
         return new SimpleDateFormat("dd MMMM yyyy HH:mm").format(date);
     }
 
+    public static String dateValidation(int value){
+        if (value<10){
+            return "0"+value;
+        }
+        return String.valueOf(value);
+    }
+
+    public  static String getMonthName(String month){
+        Date date= null;
+        try {
+            date = new SimpleDateFormat("MM").parse(month);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("MMMM").format(date);
+    }
+
 }

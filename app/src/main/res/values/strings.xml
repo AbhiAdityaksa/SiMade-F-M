@@ -6,6 +6,15 @@
         <item>Tidak Kerja</item>
     </string-array>
 
+    <string-array name="infoCat">
+        <item>Pilih Kategori</item>
+        <item>Sumbangan</item>
+        <item>Informasi</item>
+        <item>Kegiatan</item>
+        <item>Pengumuman</item>
+        <item>Lainnya</item>
+    </string-array>
+
     <string name="title_activity_home1">HomeActivity1</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Lapor</string>
@@ -17,12 +26,26 @@
     <string name="admin_akun">Akun</string>
 
     <string name="title_user_question_admin">Pertanyaan</string>
-    <string name="title_user_report_admin">Laporan</string>
-    <string name="title_verif_user_admin">Verifikasi</string>
-    <string name="title_verif_carity_admin">Verif Cart</string>
+    <string name="title_user_question_admin_dua">Warga</string>
 
-    <string name="title_info_desa_admin">Info Desa</string>
-    <string name="title_report_category_admin">Kat Report</string>
-    <string name="title_category_admin">Kat Info</string>
-    <string name="title_data_sumbangan_admin">Sumbangan</string>
+    <string name="title_user_report_admin">Laporan</string>
+    <string name="title_user_report_admin_dua">Warga</string>
+
+    <string name="title_verif_user_admin">Verifikasi</string>
+    <string name="title_verif_user_admin_dua">Warga</string>
+
+    <string name="title_verif_carity_admin">Verifikasi</string>
+    <string name="title_verif_carity_admin_dua">Sumbangan</string>
+
+    <string name="title_info_desa_admin">Informasi</string>
+    <string name="title_info_desa_admin_dua">Desa</string>
+
+    <string name="title_report_category_admin">Kategori</string>
+    <string name="title_report_category_admin_dua">Laporan</string>
+
+    <string name="title_category_admin">Kategori</string>
+    <string name="title_category_admin_dua">Informasi</string>
+
+    <string name="title_data_sumbangan_admin">Data</string>
+    <string name="title_data_sumbangan_admin_dua">Sumbangan</string>
 </resources>

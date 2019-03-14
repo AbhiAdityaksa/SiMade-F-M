@@ -32,6 +32,13 @@ public class AdminWriterActivity extends AppCompatActivity {
         R.string.title_data_sumbangan_admin
     };
 
+    private int[] navLabels2 = {
+       R.string.title_info_desa_admin_dua,
+       R.string.title_report_category_admin_dua,
+       R.string.title_category_admin_dua,
+       R.string.title_data_sumbangan_admin_dua
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +59,11 @@ public class AdminWriterActivity extends AppCompatActivity {
             LinearLayout tab = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.custom_tab, null);
 
             TextView tab_label = (TextView) tab.findViewById(R.id.nav_label);
+            TextView tab_label_2 = (TextView) tab.findViewById(R.id.nav_label2);
             ImageView tab_icon = (ImageView) tab.findViewById(R.id.nav_icon);
 
             tab_label.setText(getResources().getString(navLabels[i]));
+            tab_label_2.setText(getResources().getString(navLabels2[i]));
             tab_icon.setImageResource(navIcons[i]);
 
             tabLayout.getTabAt(i).setCustomView(tab);

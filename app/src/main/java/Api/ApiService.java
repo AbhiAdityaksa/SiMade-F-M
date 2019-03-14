@@ -4,7 +4,9 @@ import java.util.List;
 
 import Model.HistoryResponse;
 import Model.ReportCategory;
+import Model.Response;
 import Model.User;
+import Model.VillageInfoResponse;
 import Model.VillagerWorkerAdmin;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -40,4 +42,26 @@ public interface ApiService {
 
     @GET("admin/show/history")
     Call<List<HistoryResponse>> showHistory();
+
+    @GET("show/info")
+    Call<List<VillageInfoResponse>> showInfoDesa();
+
+    @Multipart
+    @POST("admin/add/info")
+    Call<Response> addInfo(
+            @Part MultipartBody.Part picture,
+            @Part("name") RequestBody name,
+            @Part("etc") RequestBody etc,
+            @Part("category_id") RequestBody category_id
+    );
+
+    @Multipart
+    @POST("admin/add/info")
+    Call<Response> addInfoSumbangan(
+            @Part MultipartBody.Part picture,
+            @Part("name") RequestBody name,
+            @Part("etc") RequestBody etc,
+            @Part("category_id") RequestBody category_id,
+            @Part("valid") RequestBody valid
+    );
 }

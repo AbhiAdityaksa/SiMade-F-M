@@ -40,6 +40,12 @@ public class User{
 	@SerializedName("photo_identity")
 	private String photoIdentity;
 
+	@SerializedName("worker_id")
+    private String workedId;
+
+	@SerializedName("birthday")
+    private String birthday;
+
 	public String getError() {
 		return error;
 	}
@@ -169,7 +175,23 @@ public class User{
 		return email;
 	}
 
-	@Override
+    public String getWorkedId() {
+        return workedId;
+    }
+
+    public void setWorkedId(String workedId) {
+        this.workedId = workedId;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    @Override
  	public String toString(){
 		return 
 			"User{" +

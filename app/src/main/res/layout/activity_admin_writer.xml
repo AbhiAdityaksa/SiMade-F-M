@@ -29,7 +29,7 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/admin_writer_tab"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="90dp"
         style="@style/SlidingTabs"
         android:background="@color/background"/>
 
