@@ -1,5 +1,6 @@
 package com.example.simadeui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.simadeui.R;
+import com.example.simadeui.admin.writer.villageinfo.DetailVillageInfoActivity;
 
 import Helper.ConstantURL;
 import Helper.DateFormated;
@@ -29,6 +31,7 @@ public class DetPostActivity extends AppCompatActivity {
 
         init();
         setView();
+        tanya();
         back();
     }
 
@@ -36,6 +39,20 @@ public class DetPostActivity extends AppCompatActivity {
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    private void tanya(){
+        btnTanya.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetPostActivity.this,TanyaActivity.class);
+                intent.putExtra("Title",villageInfoResponse.getName());
+                intent.putExtra("Etc",villageInfoResponse.getEtc());
+                intent.putExtra("Date",villageInfoResponse.getCreatedAt());
+                startActivity(intent);
                 finish();
             }
         });
@@ -57,5 +74,6 @@ public class DetPostActivity extends AppCompatActivity {
         imageView = findViewById(R.id.iv_image_news_detail);
         imageBack = findViewById(R.id.det_post_back);
         btnTanya = findViewById(R.id.btn_question);
+
     }
 }
