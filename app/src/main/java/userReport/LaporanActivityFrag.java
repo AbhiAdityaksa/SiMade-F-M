@@ -17,9 +17,16 @@ import android.widget.Toast;
 
 import com.example.simadeui.R;
 import com.example.simadeui.admin.writer.reportcategory.ReportCategoryPresenter;
+import com.example.simadeui.admin.writer.reportcategory.ReportCategoryView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import Api.ApiClient;
+import Model.ReportCategory;
 import Model.Response;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class LaporanActivityFrag extends Fragment implements UserReportView {
 
@@ -27,10 +34,15 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
     Spinner s_report_category;
     Button bt_send_report;
     EditText et_etc;
+    ReportCategoryView reportCategoryView;
     ReportCategoryPresenter reportCategoryPresenter;
     UserReportPresenter userReportPresenter;
     private ProgressDialog progressDialog;
     private String reportId;
+    private List<Response> catInfoList;
+    Integer lenght = 0;
+    ArrayAdapter<String> stringArrayAdapter;
+    ArrayList<String> info;
 
     @Nullable
     @Override
@@ -49,32 +61,16 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Now Loading...");
 
-        userReportPresenter = new UserReportPresenter(this,ApiClient.getService(getContext()));
-
-        String[] catInfo = new String[]{
-                "Pilih Kategori",
-                "Sumbangan",
-                "Informasi",
-                "Kegiatan",
-                "Pengumuman",
-                "Lainnya"
-        };
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
-                getContext(), android.R.layout.simple_dropdown_item_1line, catInfo
-        );
-
-        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        s_report_category.setAdapter(stringArrayAdapter);
+        userReportPresenter = new UserReportPresenter(this, ApiClient.getService(getContext()));
+        userReportPresenter.getReportCategory();
 
         s_report_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                reportId = String.valueOf(i);
+                reportId = String.valueOf(i+1);
             }
 
             @Override
@@ -100,6 +96,27 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
     @Override
     public void hideLoading() {
         progressDialog.hide();
+    }
+
+    @Override
+    public void onSuccess(List<Response> responses) {
+        this.catInfoList = responses;
+        lenght = catInfoList.size();
+
+        info = new ArrayList<>();
+        for(int i =0; i<lenght;i++){
+            info.add(new String(catInfoList.get(i).getName()));
+
+        }
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+                getContext(), android.R.layout.simple_dropdown_item_1line, info
+        );
+
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        s_report_category.setAdapter(stringArrayAdapter);
+
+        Toast.makeText(getContext(), "Success Load Spinner ", Toast.LENGTH_SHORT).show();
     }
 
     @Override

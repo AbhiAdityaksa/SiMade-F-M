@@ -18,7 +18,7 @@ public class ReportCategoryPresenter {
     }
 
     public void getReportCategory(){
-        view.showLoading();
+//        view.showLoading();
         service.showReportCategory()
                 .enqueue(new Callback<List<ReportCategory>>() {
                     @Override

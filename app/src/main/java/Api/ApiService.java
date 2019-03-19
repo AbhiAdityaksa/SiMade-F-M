@@ -40,6 +40,9 @@ public interface ApiService {
     @GET("show/report-category")
     Call<List<ReportCategory>> showReportCategory();
 
+    @GET("show/report-category")
+    Call<List<Response>> catReport();
+
     @GET("admin/show/history")
     Call<List<HistoryResponse>> showHistory();
 

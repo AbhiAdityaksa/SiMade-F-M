@@ -74,9 +74,6 @@ public class UserReport{
 	@SerializedName("message")
 	private Integer message;
 
-
-
-
 	public String getError() {
 		return error;
 	}
