@@ -1,9 +1,10 @@
 package com.example.simadeui;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import utama.UtamaActivity;
 
 public class GantiPassActivity extends AppCompatActivity {
 
@@ -16,7 +17,7 @@ public class GantiPassActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(GantiPassActivity.this,UtamaActivity.class);
+        Intent intent = new Intent(GantiPassActivity.this, UtamaActivity.class);
         intent.putExtra("FRAG", "Profile");
         startActivity(intent);
         finish();

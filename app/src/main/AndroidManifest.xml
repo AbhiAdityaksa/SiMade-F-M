@@ -36,7 +36,7 @@
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".DetProfileActivity" /> <!-- <activity android:name=".HomeActivityFrag" /> -->
         <activity
-            android:name=".UtamaActivity"
+            android:name="utama.UtamaActivity"
             android:label="@string/title_activity_home1" />
         <activity android:name=".Register2Activity" />
         <activity android:name=".RegisterActivity" />

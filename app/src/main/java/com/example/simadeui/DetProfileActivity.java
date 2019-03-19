@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import utama.UtamaActivity;
+
 public class DetProfileActivity extends AppCompatActivity {
 
     ImageView btn_back;
@@ -28,7 +30,7 @@ public class DetProfileActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(DetProfileActivity.this,UtamaActivity.class);
+        Intent intent = new Intent(DetProfileActivity.this, UtamaActivity.class);
         startActivity(intent);
         finish();
         // Don't add finish here.

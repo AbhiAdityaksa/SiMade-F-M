@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import Helper.PreferenceHelper;
@@ -18,6 +19,7 @@ public class ProfileActivityFrag extends Fragment{
     TextView tv_name;
     TextView tv_work;
 
+    private Button btnLogout;
 
     String name;
     String work;
@@ -32,6 +34,7 @@ public class ProfileActivityFrag extends Fragment{
         tv_chang_pass = v.findViewById(R.id.tv_change_pass);
         tv_name = v.findViewById(R.id.tv_nama);
         tv_work = v.findViewById(R.id.tv_pekerjaan);
+        btnLogout = v.findViewById(R.id.bt_logout);
 
         preferenceHelper = new PreferenceHelper(getActivity());
 
@@ -58,6 +61,17 @@ public class ProfileActivityFrag extends Fragment{
                 getActivity().finish();
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                preferenceHelper.setLogout();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         return v;
 
     }

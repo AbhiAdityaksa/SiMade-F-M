@@ -1,126 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".HomeActivityFrag">
+    tools:context=".HomeActivityFrag"
+    android:orientation="vertical">
 
-    <ImageView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@color/colorgrey"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher_background"
-                app:civ_border_color="#FFf"
-                app:civ_border_width="4dp"
-                android:elevation="1dp"
-                tools:ignore="VectorDrawableCompat" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/colorgrey"/>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="100dp">
 
-                <android.support.v7.widget.CardView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_launcher_background"
+                    app:civ_border_color="#FFf"
+                    app:civ_border_width="4dp"
+                    android:elevation="1dp"
+                    tools:ignore="VectorDrawableCompat" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="75dp"
-                    app:cardCornerRadius="10dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_nama"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pak Made"
-                        android:textSize="30sp"
-                        android:textStyle="bold"
-                        android:textColor="#5EB5A6"
-                        android:textAlignment="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_gravity="center"/>
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="75dp"
+                        app:cardCornerRadius="10dp">
 
-                    <TextView
-                        android:id="@+id/tv_pekerjaan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="-20dp"
-                        android:text="Pegawai Swasta"
-                        android:textSize="20sp"
-                        android:textStyle="normal"
-                        android:layout_gravity="center"/>
-                </android.support.v7.widget.CardView>
+                        <TextView
+                            android:id="@+id/tv_nama"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pak Made"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            android:textColor="#5EB5A6"
+                            android:textAlignment="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"/>
 
-                <android.support.v7.widget.CardView
-                    android:layout_marginTop="5dp"
+                        <TextView
+                            android:id="@+id/tv_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="-20dp"
+                            android:text="Pegawai Swasta"
+                            android:textSize="20sp"
+                            android:textStyle="normal"
+                            android:layout_gravity="center"/>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_height="130dp"
+                        app:cardCornerRadius="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_det_profile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Details Profile"
+                            android:layout_marginTop="-25dp"
+                            android:textSize="19sp"
+                            android:textStyle="normal"
+                            android:clickable="true" />
+
+                        <TextView
+                            android:id="@+id/tv_change_pass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:text="Change Password"
+                            android:textStyle="normal"
+                            android:textSize="19sp"
+                            android:layout_gravity="center"
+                            android:clickable="true" />
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bt_logout"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_height="130dp"
-                    app:cardCornerRadius="10dp">
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="LogOut"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    android:typeface="normal"
+                    android:textStyle="bold"
+                    android:layout_marginTop="450dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="55dp"
+                    android:layout_marginBottom="100dp"
+                    android:background="@drawable/btn_danger"/>
 
-                    <TextView
-                        android:id="@+id/tv_det_profile"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Details Profile"
-                        android:layout_marginTop="-25dp"
-                        android:textSize="19sp"
-                        android:textStyle="normal"
-                        android:clickable="true" />
-
-                    <TextView
-                        android:id="@+id/tv_change_pass"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:text="Change Password"
-                        android:textStyle="normal"
-                        android:textSize="19sp"
-                        android:layout_gravity="center"
-                        android:clickable="true" />
-
-                </android.support.v7.widget.CardView>
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/bt_logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="LogOut"
-                android:textColor="#fff"
-                android:textSize="20sp"
-                android:typeface="normal"
-                android:textStyle="bold"
-                android:layout_marginTop="450dp"
-                android:layout_marginLeft="55dp"
-                android:layout_marginRight="55dp"
-                android:background="@drawable/btn_danger"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

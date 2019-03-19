@@ -1,10 +1,10 @@
 package com.example.simadeui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +19,7 @@ import Auth.AuthView;
 import Helper.ConstantURL;
 import Helper.PreferenceHelper;
 import Model.User;
+import utama.UtamaActivity;
 
 public class MainActivity extends AppCompatActivity implements AuthView, View.OnClickListener {
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         checkLogin();
         init();
     }
@@ -103,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements AuthView, View.On
             case R.id.tv_regis1:
                 Intent intent=new Intent(MainActivity.this,Register2Activity.class);
                 startActivity(intent);
-                finish();
                 break;
 
         }

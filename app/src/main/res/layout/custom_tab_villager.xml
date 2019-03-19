@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/nav_icon_villager"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_graphic"
+        tools:ignore="VectorDrawableCompat"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/colorutama"/>
+
+    <TextView
+        android:id="@+id/nav_label_villager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorutama"
+        android:textSize="10sp"
+        android:text="Test"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="3dp"/>
+
+</LinearLayout>

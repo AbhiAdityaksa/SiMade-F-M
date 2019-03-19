@@ -64,4 +64,9 @@ public interface ApiService {
             @Part("category_id") RequestBody category_id,
             @Part("valid") RequestBody valid
     );
+
+    @FormUrlEncoded
+    @POST("add/report")
+    Call<Response> addReport(@Field("report_category_id") String reportCat,
+                             @Field("etc") String etc);
 }

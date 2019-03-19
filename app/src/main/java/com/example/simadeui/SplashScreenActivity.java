@@ -9,6 +9,7 @@ import com.example.simadeui.admin.AdminActivity;
 
 import Helper.ConstantURL;
 import Helper.PreferenceHelper;
+import utama.UtamaActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
     private PreferenceHelper preferenceHelper;
@@ -26,7 +27,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent intent;
                 if (preferenceHelper.getLogin()){
                     if (preferenceHelper.getPermission().equals(String.valueOf(ConstantURL.Permission.USER))){
-                        intent = new Intent(SplashScreenActivity.this,UtamaActivity.class);
+                        intent = new Intent(SplashScreenActivity.this, UtamaActivity.class);
                     }else {
                         intent = new Intent(SplashScreenActivity.this, AdminActivity.class);
                     }
