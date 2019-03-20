@@ -30,7 +30,7 @@
             android:name=".admin.AdminActivity"
             tools:ignore="InnerclassSeparator" />
         <activity android:name=".BerhasilActivity" />
-        <activity android:name=".TanyaActivity" />
+        <activity android:name=".tanyaActivity.TanyaActivity" />
         <activity android:name=".DetPostActivity" />
         <activity android:name=".GantiPassActivity" />
         <activity android:name=".EditProfileActivity" />

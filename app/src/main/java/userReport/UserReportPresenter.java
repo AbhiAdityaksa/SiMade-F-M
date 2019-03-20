@@ -14,7 +14,6 @@ import retrofit2.Callback;
 public class UserReportPresenter {
 
     private UserReportView view;
-    private ReportCategoryView reportCategoryView;
     private ApiService service;
 
     public UserReportPresenter(UserReportView view,  ApiService service) {

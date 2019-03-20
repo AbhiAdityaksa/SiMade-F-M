@@ -34,6 +34,10 @@ public interface ApiService {
                             @Part("contact") RequestBody contact,
                             @Part("worked_status") RequestBody worked_status);
 
+    @FormUrlEncoded
+    @POST("add/question")
+    Call<Response>addQuestion(@Field("question") String question, @Field("village_info_id") Integer village_info_id);
+
     @GET("admin/show/villager/worked")
     Call<VillagerWorkerAdmin> villagerWorked();
 
