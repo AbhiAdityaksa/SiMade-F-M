@@ -1,12 +1,5 @@
 package Database;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
-
-import com.example.simadeui.DetProfileActivity;
-
 public class DbHelper {
 
 //    private static final String DATABASE_NAME = "SiMade.sql";

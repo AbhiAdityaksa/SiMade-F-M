@@ -22,7 +22,7 @@
         <activity android:name=".admin.writer.category.addcategory.AddCategoryActivity" />
         <activity android:name=".admin.writer.reportcategory.addreportcategory.AddReportCategoryActivity" />
         <activity android:name=".admin.writer.villageinfo.addvillageinfo.AddVillageInfoActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="Auth.MainActivity" />
         <activity android:name=".admin.writer.AdminWriterActivity" />
         <activity
             android:name=".admin.notifikasi.AdminNotifActivity"
@@ -34,13 +34,14 @@
         <activity android:name=".tanyaActivity.TanyaActivity" />
         <activity android:name=".DetPostActivity" />
         <activity android:name=".GantiPassActivity" />
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".DetProfileActivity" /> <!-- <activity android:name=".HomeActivityFrag" /> -->
+        <activity android:name="Auth.EditProfileActivity" />
+        <activity android:name="Auth.DetProfileActivity" /> <!-- <activity android:name=".HomeActivityFrag" /> -->
         <activity
             android:name="utama.UtamaActivity"
             android:label="@string/title_activity_home1" />
-        <activity android:name=".Register2Activity" />
+        <activity android:name="Auth.Register2Activity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name="notifActivity.NotifActivity" />
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

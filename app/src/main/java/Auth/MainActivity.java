@@ -1,4 +1,4 @@
-package com.example.simadeui;
+package Auth;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,12 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.simadeui.R;
 import com.example.simadeui.admin.AdminActivity;
 
 import Api.ApiClient;
 import Api.ApiService;
-import Auth.AuthPresenter;
-import Auth.AuthView;
 import Helper.ConstantURL;
 import Helper.PreferenceHelper;
 import Model.User;

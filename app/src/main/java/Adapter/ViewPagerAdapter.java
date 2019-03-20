@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.simadeui.HomeActivityFrag;
-import com.example.simadeui.ProfileActivityFrag;
+import Auth.ProfileActivityFrag;
 
 import userReport.LaporanActivityFrag;
 

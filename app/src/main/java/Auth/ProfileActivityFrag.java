@@ -1,4 +1,4 @@
-package com.example.simadeui;
+package Auth;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.simadeui.GantiPassActivity;
+import com.example.simadeui.R;
+
+import Auth.DetProfileActivity;
+import Auth.MainActivity;
 import Helper.PreferenceHelper;
 
 public class ProfileActivityFrag extends Fragment{
@@ -47,7 +52,7 @@ public class ProfileActivityFrag extends Fragment{
         tv_det_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),DetProfileActivity.class);
+                Intent intent = new Intent(getContext(), DetProfileActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }
@@ -56,7 +61,7 @@ public class ProfileActivityFrag extends Fragment{
         tv_chang_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),GantiPassActivity.class);
+                Intent intent = new Intent(getContext(), GantiPassActivity.class);
                 startActivity(intent);
                 getActivity().finish();
             }
