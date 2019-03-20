@@ -2,6 +2,7 @@ package Api;
 
 import java.util.List;
 
+import Model.DetailSumCarityResponse;
 import Model.HistoryResponse;
 import Model.ReportCategory;
 import Model.Response;
@@ -18,6 +19,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -55,6 +57,9 @@ public interface ApiService {
 
     @GET("admin/show/total/carity")
     Call<List<SumCarityResponse>> showSumCarity();
+
+    @GET("admin/show/carity/detail/{id}")
+    Call<List<DetailSumCarityResponse>> showListPenyumbang(@Path("id") int id);
 
     @Multipart
     @POST("admin/add/info")
