@@ -1,4 +1,4 @@
-package com.example.simadeui.admin.writer.reportcategory;
+package com.example.simadeui.admin.writer.carity;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,18 +12,19 @@ import com.example.simadeui.R;
 
 import java.util.List;
 
+import Helper.CurrencyFormated;
 import Helper.DateFormated;
-import Model.ReportCategory;
+import Model.SumCarityResponse;
 
-public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAdapter.ViewHolder> {
+public class DataCarityAdapter extends RecyclerView.Adapter<DataCarityAdapter.ViewHolder> {
 
     private Context context;
+    private List<SumCarityResponse> sumCarityResponseList;
     private OnClickListener onClickListener;
-    private List<ReportCategory> reportCategoryList;
 
-    public ReportCategoryAdapter(Context context, List<ReportCategory> reportCategoryList) {
+    public DataCarityAdapter(Context context, List<SumCarityResponse> sumCarityResponseList) {
         this.context = context;
-        this.reportCategoryList = reportCategoryList;
+        this.sumCarityResponseList = sumCarityResponseList;
     }
 
     public interface OnClickListener{
@@ -33,27 +34,28 @@ public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.report_category_admin_item,viewGroup,false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.data_sumbangan_admin_item, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ReportCategory reportCategory = reportCategoryList.get(i);
-        viewHolder.bind(reportCategory);
+        SumCarityResponse sumCarityResponse = sumCarityResponseList.get(i);
+        viewHolder.bind(sumCarityResponse);
     }
 
     @Override
     public int getItemCount() {
-        return reportCategoryList.size();
+        return sumCarityResponseList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvName;
+        TextView tvTanggal, tvName, tvTotal;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvDate = itemView.findViewById(R.id.tv_report_category_date_admin);
-            tvName = itemView.findViewById(R.id.tv_report_category_name_admin);
+            tvTanggal = itemView.findViewById(R.id.tv_date_data_sumbangan_valid_admin);
+            tvName = itemView.findViewById(R.id.tv_name_data_sumbangan_admin);
+            tvTotal = itemView.findViewById(R.id.tv_total_carity_data_sumbangan_admin);
             if (onClickListener!=null){
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -64,9 +66,12 @@ public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAd
             }
         }
 
-        public void bind(ReportCategory reportCategory) {
-            tvDate.setText(DateFormated.setTglHistory(reportCategory.getUpdatedAt()));
-            tvName.setText(reportCategory.getName());
+        public void bind(SumCarityResponse sumCarityResponse) {
+            tvTanggal.setText(DateFormated.setTgl(sumCarityResponse.getValid()));
+            tvName.setText(sumCarityResponse.getName());
+            int total = Integer.parseInt(sumCarityResponse.getTotalCarity());
+            String total_carity = CurrencyFormated.toRupiah(total);
+            tvTotal.setText(total_carity);
         }
     }
 

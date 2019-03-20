@@ -5,6 +5,7 @@ import java.util.List;
 import Model.HistoryResponse;
 import Model.ReportCategory;
 import Model.Response;
+import Model.SumCarityResponse;
 import Model.User;
 import Model.VillageInfoResponse;
 import Model.VillagerWorkerAdmin;
@@ -48,6 +49,12 @@ public interface ApiService {
 
     @GET("show/info")
     Call<List<VillageInfoResponse>> showInfoDesa();
+
+    @GET("admin/show/info-category")
+    Call<List<Response>> catInfo();
+
+    @GET("admin/show/total/carity")
+    Call<List<SumCarityResponse>> showSumCarity();
 
     @Multipart
     @POST("admin/add/info")

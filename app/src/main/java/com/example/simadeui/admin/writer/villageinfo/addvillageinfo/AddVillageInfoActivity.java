@@ -3,6 +3,7 @@ package com.example.simadeui.admin.writer.villageinfo.addvillageinfo;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -32,8 +33,6 @@ import android.widget.Toast;
 import com.example.simadeui.R;
 import com.example.simadeui.admin.writer.AdminWriterActivity;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +58,10 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
     private String categoryId = "", dateValid;
     private LinearLayout layoutValid;
     private MultipartBody.Part picture;
+    private List<Response> responseList;
+    private Integer length = 0;
+    private ArrayList<String> catInfo;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +69,9 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
         setContentView(R.layout.activity_add_village_info);
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Now Loading...");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1001);
@@ -99,6 +105,7 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
         tvResult = findViewById(R.id.tv_s_result);
 
         presenter = new AddVillageInfoPresenter(this, ApiClient.getService(this));
+        presenter.showCatInfo();
         /*ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.infoCat, android.R.layout.simple_dropdown_item_1line);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         s_categoryId.setAdapter(adapter);*/
@@ -107,30 +114,22 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
         day_x=11;
         month_x=9;
 
-        String[] catInfo = new String[]{
+        /*String[] catInfo = new String[]{
                 "Pilih Kategori",
                 "Sumbangan",
                 "Informasi",
                 "Kegiatan",
                 "Pengumuman",
                 "Lainnya"
-        };
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_dropdown_item_1line, catInfo
-        );
-
-        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        s_categoryId.setAdapter(stringArrayAdapter);
+        };*/
 
         s_categoryId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                tvResult.setText("Result :");
-                tvResult.setText(tvResult.getText() + adapterView.getItemAtPosition(i).toString());
+                categoryId = String.valueOf(i+1);
 
-                if (i == 1){
+                if (categoryId.equals("1")){
                     tvCaptionValid.setVisibility(View.VISIBLE);
                     layoutValid.setVisibility(View.VISIBLE);
                 } else {
@@ -138,7 +137,6 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
                     layoutValid.setVisibility(View.GONE);
                 }
 
-                categoryId = String.valueOf(i);
             }
 
             @Override
@@ -258,12 +256,12 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
 
     @Override
     public void showLoading() {
-        Toast.makeText(this, "Now Loading...", Toast.LENGTH_SHORT).show();
+        progressDialog.show();
     }
 
     @Override
     public void hideLoading() {
-        Toast.makeText(this, "Loaded", Toast.LENGTH_SHORT).show();
+        progressDialog.hide();
     }
 
     @Override
@@ -272,6 +270,26 @@ public class AddVillageInfoActivity extends AppCompatActivity implements AddVill
         startActivity(intent);
         finish();
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onCatInfo(List<Response> responseList) {
+        this.responseList = responseList;
+        length = responseList.size();
+
+        catInfo = new ArrayList<>();
+        for (int i = 0; i < length; i++){
+            catInfo.add(new String(responseList.get(i).getName()));
+        }
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_dropdown_item_1line, catInfo
+        );
+
+        stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        s_categoryId.setAdapter(stringArrayAdapter);
+
+//        Toast.makeText(this, "Success Set Spinner", Toast.LENGTH_SHORT).show();
     }
 
     @Override

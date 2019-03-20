@@ -64,7 +64,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@drawable/et_outline"
+                android:background="@drawable/bg_spinner"
                 android:padding="10dp"
                 android:textColorHint="#5eb5a6" />
             <TextView
@@ -122,7 +122,8 @@
                 android:background="@drawable/et_outline"
                 android:hint="Masukkan Deskripsi Info Desa"
                 android:padding="10dp"
-                android:textColorHint="#5eb5a6" />
+                android:textColorHint="#5eb5a6"
+                android:gravity="top"/>
 
             <TextView
                 android:layout_width="wrap_content"
