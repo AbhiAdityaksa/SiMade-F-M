@@ -1,4 +1,4 @@
-package com.example.simadeui.admin.writer.reportcategory;
+package com.example.simadeui.admin.writer.category;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,17 +13,17 @@ import com.example.simadeui.R;
 import java.util.List;
 
 import Helper.DateFormated;
-import Model.ReportCategory;
+import Model.Response;
 
-public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAdapter.ViewHolder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
 
     private Context context;
+    private List<Response> responseList;
     private OnClickListener onClickListener;
-    private List<ReportCategory> reportCategoryList;
 
-    public ReportCategoryAdapter(Context context, List<ReportCategory> reportCategoryList) {
+    public CategoryAdapter(Context context, List<Response> responseList) {
         this.context = context;
-        this.reportCategoryList = reportCategoryList;
+        this.responseList = responseList;
     }
 
     public interface OnClickListener{
@@ -33,27 +33,27 @@ public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAd
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.report_category_admin_item,viewGroup,false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.category_admin_item, viewGroup, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        ReportCategory reportCategory = reportCategoryList.get(i);
-        viewHolder.bind(reportCategory);
+        Response response = responseList.get(i);
+        viewHolder.bind(response);
     }
 
     @Override
     public int getItemCount() {
-        return reportCategoryList.size();
+        return responseList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvName;
+        TextView tvTanggal, tvName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvDate = itemView.findViewById(R.id.tv_report_category_date_admin);
-            tvName = itemView.findViewById(R.id.tv_report_category_name_admin);
+            tvTanggal = itemView.findViewById(R.id.tv_category_date_admin);
+            tvName = itemView.findViewById(R.id.tv_category_name_admin);
             if (onClickListener!=null){
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -64,9 +64,9 @@ public class ReportCategoryAdapter extends RecyclerView.Adapter<ReportCategoryAd
             }
         }
 
-        public void bind(ReportCategory reportCategory) {
-            tvDate.setText(DateFormated.setTglHistory(reportCategory.getUpdatedAt()));
-            tvName.setText(reportCategory.getName());
+        public void bind(Response response) {
+//            tvTanggal.setText(DateFormated.setTglHistory(response.getUpdatedAt()));
+            tvName.setText(response.getName());
         }
     }
 

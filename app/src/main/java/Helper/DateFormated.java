@@ -16,6 +16,16 @@ public class DateFormated {
         return new SimpleDateFormat("dd MMMM yyyy HH:mm").format(date);
     }
 
+    public  static String setTgl(String oldDate){
+        Date date= null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(oldDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("dd MMMM yyyy").format(date);
+    }
+
     public static String dateValidation(int value){
         if (value<10){
             return "0"+value;
