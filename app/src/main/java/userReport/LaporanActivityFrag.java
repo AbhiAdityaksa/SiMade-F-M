@@ -43,6 +43,7 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
     Integer lenght = 0;
     ArrayAdapter<String> stringArrayAdapter;
     ArrayList<String> info;
+    ArrayList<Integer> id;
 
     @Nullable
     @Override
@@ -70,7 +71,7 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
         s_report_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                reportId = String.valueOf(i+1);
+                reportId = id.get(i).toString();
             }
 
             @Override
@@ -82,6 +83,7 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
         bt_send_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(TAG, "onClick: id="+reportId+", etc= "+et_etc.getText().toString());
                 userReportPresenter.addReport(reportId,et_etc.getText().toString());
             }
         });
@@ -104,9 +106,10 @@ public class LaporanActivityFrag extends Fragment implements UserReportView {
         lenght = catInfoList.size();
 
         info = new ArrayList<>();
+        id = new ArrayList<>();
         for(int i =0; i<lenght;i++){
             info.add(new String(catInfoList.get(i).getName()));
-
+            id.add(new Integer(catInfoList.get(i).getId()));
         }
 
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(

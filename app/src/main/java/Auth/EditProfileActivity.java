@@ -1,13 +1,15 @@
-package com.example.simadeui;
+package Auth;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class NotifActivity extends AppCompatActivity {
+import com.example.simadeui.R;
+
+public class EditProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notif);
+        setContentView(R.layout.activity_edit_profile);
     }
 }

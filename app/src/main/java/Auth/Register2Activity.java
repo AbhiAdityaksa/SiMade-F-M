@@ -1,4 +1,4 @@
-package com.example.simadeui;
+package Auth;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,25 +21,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nbsp.materialfilepicker.MaterialFilePicker;
-import com.nbsp.materialfilepicker.ui.FilePickerActivity;
+import com.example.simadeui.R;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.regex.Pattern;
 
 import Api.ApiClient;
 import Api.ApiService;
-import Auth.AuthPresenter;
-import Auth.AuthView;
 import Helper.PreferenceHelper;
 import Model.User;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Register2Activity extends AppCompatActivity implements AuthView{
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".TanyaActivity">
+    tools:context=".tanyaActivity.TanyaActivity">
 
     <android.support.v7.widget.CardView
         android:id="@+id/actionbar1"
@@ -116,6 +116,7 @@
                                 android:textStyle="normal"/>
 
                             <EditText
+                                android:id="@+id/et_tanya"
                                 android:layout_width="match_parent"
                                 android:layout_height="45dp"
                                 android:maxLines="6"
@@ -127,7 +128,7 @@
                                 android:background="@drawable/stroke"/>
 
                             <Button
-                                android:id="@+id/btn_s_quest"
+                                android:id="@+id/btn_send"
                                 android:layout_width="match_parent"
                                 android:layout_height="45dp"
                                 android:layout_marginTop="15dp"
@@ -161,7 +162,6 @@
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
-                                        android:id="@+id/profile_image"
                                         android:layout_width="10dp"
                                         android:layout_height="40dp"
                                         android:layout_centerHorizontal="true"
@@ -189,7 +189,6 @@
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
-                                        android:id="@+id/profile_image"
                                         android:layout_width="10dp"
                                         android:layout_height="40dp"
                                         android:layout_centerHorizontal="true"
@@ -216,7 +215,6 @@
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
-                                        android:id="@+id/profile_image"
                                         android:layout_width="10dp"
                                         android:layout_height="40dp"
                                         android:layout_centerHorizontal="true"
@@ -233,8 +231,7 @@ agar pertanyaan tersebut mudah dipahami."
                                         android:layout_marginLeft="10dp"
                                         android:layout_marginTop="10dp"
                                         android:textStyle="bold"
-                                        android:textColor="@color/colorutama"
-                                        android:gravity="center_horizontal"/>
+                                        android:textColor="@color/colorutama" />
 
                                 </LinearLayout>
                                 <LinearLayout
@@ -245,7 +242,6 @@ agar pertanyaan tersebut mudah dipahami."
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
-                                        android:id="@+id/profile_image"
                                         android:layout_width="10dp"
                                         android:layout_height="40dp"
                                         android:layout_centerHorizontal="true"
@@ -261,8 +257,7 @@ agar pertanyaan tersebut mudah dipahami."
                                         android:layout_marginLeft="10dp"
                                         android:layout_marginTop="10dp"
                                         android:textStyle="bold"
-                                        android:textColor="@color/colorutama"
-                                        android:gravity="center_horizontal"/>
+                                        android:textColor="@color/colorutama" />
 
                                 </LinearLayout>
                             </LinearLayout>

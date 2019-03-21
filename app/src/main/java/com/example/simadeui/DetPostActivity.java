@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.simadeui.R;
-import com.example.simadeui.admin.writer.villageinfo.DetailVillageInfoActivity;
+import com.example.simadeui.tanyaActivity.TanyaActivity;
 
 import Helper.ConstantURL;
 import Helper.DateFormated;
@@ -48,7 +47,8 @@ public class DetPostActivity extends AppCompatActivity {
         btnTanya.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetPostActivity.this,TanyaActivity.class);
+                Intent intent = new Intent(DetPostActivity.this, TanyaActivity.class);
+                intent.putExtra("Id",villageInfoResponse.getId());
                 intent.putExtra("Title",villageInfoResponse.getName());
                 intent.putExtra("Etc",villageInfoResponse.getEtc());
                 intent.putExtra("Date",villageInfoResponse.getCreatedAt());

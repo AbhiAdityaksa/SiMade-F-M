@@ -26,6 +26,7 @@
             android:layout_centerVertical="true"/>
 
         <ImageView
+            android:id="@+id/btn_notif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_notifi"
