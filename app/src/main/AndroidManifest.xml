@@ -33,7 +33,7 @@
         <activity android:name=".BerhasilActivity" />
         <activity android:name=".tanyaActivity.TanyaActivity" />
         <activity android:name=".DetPostActivity" />
-        <activity android:name=".GantiPassActivity" />
+        <activity android:name="changePassword.GantiPassActivity" />
         <activity android:name="Auth.EditProfileActivity" />
         <activity android:name="Auth.DetProfileActivity" /> <!-- <activity android:name=".HomeActivityFrag" /> -->
         <activity

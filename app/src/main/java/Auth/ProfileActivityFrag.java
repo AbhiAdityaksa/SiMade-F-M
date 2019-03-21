@@ -10,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.simadeui.GantiPassActivity;
+import changePassword.GantiPassActivity;
 import com.example.simadeui.R;
 
-import Auth.DetProfileActivity;
-import Auth.MainActivity;
 import Helper.PreferenceHelper;
 
 public class ProfileActivityFrag extends Fragment{

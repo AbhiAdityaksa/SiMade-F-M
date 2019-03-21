@@ -41,6 +41,10 @@ public interface ApiService {
     @POST("add/question")
     Call<Response>addQuestion(@Field("question") String question, @Field("village_info_id") Integer village_info_id);
 
+    @FormUrlEncoded
+    @POST("change/password")
+    Call<Response>changePassword(@Field("passwordold") String passwordold, @Field("password") String password, @Field("password_confirmation") String password_confirmation);
+
     @GET("admin/show/villager/worked")
     Call<VillagerWorkerAdmin> villagerWorked();
 
