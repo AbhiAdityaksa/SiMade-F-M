@@ -42,7 +42,11 @@ public class ProfileActivityFrag extends Fragment{
         preferenceHelper = new PreferenceHelper(getActivity());
 
         name = preferenceHelper.getName();
-        work = preferenceHelper.getWork();
+        if (preferenceHelper.getWork().equals("1")){
+            work = "Bekerja";
+        }else {
+            work = "Belum Bekerja";
+        }
         tv_name.setText(name);
         tv_work.setText(work);
 
@@ -52,7 +56,6 @@ public class ProfileActivityFrag extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DetProfileActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
 
@@ -61,7 +64,6 @@ public class ProfileActivityFrag extends Fragment{
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), GantiPassActivity.class);
                 startActivity(intent);
-                getActivity().finish();
             }
         });
 

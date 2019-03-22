@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,6 +37,8 @@ public class GantiPassActivity extends AppCompatActivity implements GantiPassVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ganti_pass);
 
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
         init();
         changePass();
 
@@ -43,10 +46,6 @@ public class GantiPassActivity extends AppCompatActivity implements GantiPassVie
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(GantiPassActivity.this, UtamaActivity.class);
-        intent.putExtra("FRAG", "Profile");
-        startActivity(intent);
         finish();
         // Don't add finish here.
         //This is necessary because you finished your last activity with finish();

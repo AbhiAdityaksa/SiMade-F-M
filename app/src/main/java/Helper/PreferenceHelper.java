@@ -14,6 +14,12 @@ public class PreferenceHelper {
     private final String ID ="id";
     private final String WORK ="work";
     private final String PERMISSION = "permission";
+    private final String NOKTP = "noktp";
+    private final String EMAIL = "email";
+    private final String CONTACT = "contact";
+    private final String WORKED = "worked";
+    private final String BIRTHDAY = "birthday";
+    private final String PROFILE = "profile";
 
     public PreferenceHelper(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
@@ -76,6 +82,54 @@ public class PreferenceHelper {
         return sharedPreferences.getString(PERMISSION, "");
     }
 
+    public void setNoktp(String noktp){
+        sharedPreferences.edit().putString(NOKTP, noktp).apply();
+    }
+
+    public String getNoktp() {
+        return sharedPreferences.getString(NOKTP, "");
+    }
+
+    public void setEmail(String email){
+        sharedPreferences.edit().putString(EMAIL, email).apply();
+    }
+
+    public String getEmail() {
+        return sharedPreferences.getString(EMAIL, "");
+    }
+
+    public void setContact(String contact){
+        sharedPreferences.edit().putString(CONTACT, contact).apply();
+    }
+
+    public String getContact() {
+        return sharedPreferences.getString(CONTACT, "");
+    }
+
+    public void setWorked(String worked){
+        sharedPreferences.edit().putString(WORKED, worked).apply();
+    }
+
+    public String getWorked() {
+        return sharedPreferences.getString(WORKED, "");
+    }
+
+    public void setBirthday(String birthday){
+        sharedPreferences.edit().putString(BIRTHDAY, birthday).apply();
+    }
+
+    public String getBirthday() {
+        return sharedPreferences.getString(BIRTHDAY, "");
+    }
+
+    public void setProfile(String profile){
+        sharedPreferences.edit().putString(PROFILE, profile).apply();
+    }
+
+    public String getProfile() {
+        return sharedPreferences.getString(PROFILE, "");
+    }
+
     public void setLogout(){
         sharedPreferences.edit()
                 .clear()
@@ -89,5 +143,8 @@ public class PreferenceHelper {
         setId(user.getId());
         setWork(user.getWorkedStatus());
         setPermission(user.getPermission());
+        setNoktp(user.getIdentityNo());
+        setEmail(user.getEmail());
+        setContact(user.getContact());
     }
 }
