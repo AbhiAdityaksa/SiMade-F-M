@@ -43,4 +43,34 @@ public class DateFormated {
         return new SimpleDateFormat("MMMM").format(date);
     }
 
+    public  static String getTgl(String oldDate){
+        Date date= null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(oldDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("dd").format(date);
+    }
+
+    public  static String getBulan(String oldDate){
+        Date date= null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(oldDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("MMMM").format(date);
+    }
+
+    public  static String getTahun(String oldDate){
+        Date date= null;
+        try {
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(oldDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new SimpleDateFormat("yyyy").format(date);
+    }
+
 }

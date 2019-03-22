@@ -14,6 +14,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/back_profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:background="@drawable/ic_arrow"
@@ -44,7 +45,7 @@
                 android:paddingBottom="80dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
+                    android:id="@+id/edit_profile_image"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_centerHorizontal="true"
@@ -107,7 +108,7 @@
                                         android:textSize="16sp"/>
 
                                     <EditText
-                                        android:id="@+id/et_kk_edit"
+                                        android:id="@+id/et_ktp_edit"
                                         android:layout_width="match_parent"
                                         android:layout_height="50dp"
                                         android:layout_gravity="center"
@@ -160,7 +161,7 @@
                                         tools:layout_editor_absoluteY="287dp" />
 
                                     <Spinner
-                                        android:id="@+id/et_pekerjaan_edit"
+                                        android:id="@+id/s_pekerjaan_edit"
                                         android:layout_width="match_parent"
                                         android:layout_height="50dp"
                                         android:layout_gravity="center"
@@ -169,30 +170,60 @@
                                         android:background="@drawable/et_reg"
                                         android:padding="5dp"
                                         android:textColor="#5eb5a6"
-                                        android:textSize="16sp"
                                         android:textStyle="normal"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintHorizontal_bias="0.571"
                                         app:layout_constraintStart_toStartOf="parent"
                                         tools:layout_editor_absoluteY="347dp" />
 
-                                    <EditText
-                                        android:id="@+id/et_tanggal_lahir_edit"
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tanggal Lahir"
+                                        android:textSize="15sp" />
+
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="50dp"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="0dp"
-                                        android:layout_marginBottom="16dp"
-                                        android:background="@drawable/et_reg"
-                                        android:padding="5dp"
-                                        android:text="Tanggal Lahir"
-                                        android:textColor="#5eb5a6"
-                                        android:textSize="16sp"
-                                        android:textStyle="normal"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.571"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        tools:layout_editor_absoluteY="409dp" />
+                                        android:orientation="horizontal">
+
+                                        <Button
+                                            android:id="@+id/btn_tanggal_profile"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="4"
+                                            android:background="@drawable/btn_login"
+                                            android:text="Set"
+                                            android:textColor="#fff"/>
+
+                                        <TextView
+                                            android:id="@+id/tv_tanggal_lahir"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="12"
+                                            android:textSize="18sp"
+                                            android:layout_marginLeft="8dp"/>
+
+                                        <TextView
+                                            android:id="@+id/tv_bulan_lahir"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="Februari"
+                                            android:textSize="18sp"
+                                            android:layout_marginLeft="4dp"/>
+
+                                        <TextView
+                                            android:id="@+id/tv_tahun_lahir"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:text="1998"
+                                            android:textSize="18sp"
+                                            android:layout_marginLeft="4dp"/>
+
+                                    </LinearLayout>
 
                                 </LinearLayout>
                             </ScrollView>
@@ -205,7 +236,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
-                    android:layout_marginTop="590dp"
+                    android:layout_marginTop="600dp"
                     android:layout_marginRight="55dp"
                     android:background="@drawable/btn_login"
                     android:padding="10dp"

@@ -10,6 +10,7 @@ import Model.SumCarityResponse;
 import Model.User;
 import Model.VillageInfoResponse;
 import Model.VillagerWorkerAdmin;
+import Model.WorkerResponse;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -68,6 +69,9 @@ public interface ApiService {
 
     @GET("admin/show/carity/detail/{id}")
     Call<List<DetailSumCarityResponse>> showListPenyumbang(@Path("id") int id);
+
+    @GET("show/all/worker")
+    Call<List<WorkerResponse>> showAllWorker();
 
     @Multipart
     @POST("admin/add/info")

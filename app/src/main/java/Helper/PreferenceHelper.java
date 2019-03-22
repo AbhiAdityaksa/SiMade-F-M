@@ -20,6 +20,7 @@ public class PreferenceHelper {
     private final String WORKED = "worked";
     private final String BIRTHDAY = "birthday";
     private final String PROFILE = "profile";
+    private final String VERIFIED = "verified";
 
     public PreferenceHelper(Context context) {
         sharedPreferences = context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
@@ -130,6 +131,14 @@ public class PreferenceHelper {
         return sharedPreferences.getString(PROFILE, "");
     }
 
+    public void setVerified(String verified){
+        sharedPreferences.edit().putString(VERIFIED, verified).apply();
+    }
+
+    public String getVerified() {
+        return sharedPreferences.getString(VERIFIED, "");
+    }
+
     public void setLogout(){
         sharedPreferences.edit()
                 .clear()
@@ -146,5 +155,6 @@ public class PreferenceHelper {
         setNoktp(user.getIdentityNo());
         setEmail(user.getEmail());
         setContact(user.getContact());
+        setVerified(user.getVerifiedStatus());
     }
 }
